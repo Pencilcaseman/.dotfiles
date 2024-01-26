@@ -1,0 +1,12 @@
+.DS_Store
+backup/
+config.toml
+configstore/
+gcloud/
+gh/
+gh-copilot/
+github-copilot/
+grammarly-languageserver
+jgit/
+nvim_backup/
+
