@@ -18,6 +18,7 @@ set -gx PATH $PATH /Users/tobydavis/opt/bottom/target/release
 set -gx PATH $PATH /Users/tobydavis/opt/zellij/target/release
 set -gx PATH $PATH "/Users/tobydavis/.local/bin"
 set -gx PATH $PATH /Users/tobydavis/opt/neovim/build/INSTALL/bin
+set -gx PATH $PATH /Users/tobydavis/opt/neovide/target/release
 
 set -gx PATH $PATH /Users/tobydavis/opt/starship/target/release
 
@@ -49,6 +50,10 @@ alias sg "gh copilot suggest"
 
 alias gcc gcc-13
 alias g++ "g++-13"
+
+# --------------------------------------------------------------------------------------------
+
+set fish_greeting "" # disable fish greeting
 
 # --------------------------------------------------------------------------------------------
 

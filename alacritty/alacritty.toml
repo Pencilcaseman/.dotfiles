@@ -1,6 +1,8 @@
 live_config_reload = true
 
-import = ["/Users/tobydavis/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+import = [
+    "/Users/tobydavis/.config/alacritty/themes/themes/tokyo-night-storm.toml",
+]
 
 [bell]
 animation = "EaseOutExpo"

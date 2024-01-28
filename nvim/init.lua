@@ -21,12 +21,15 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- Disable conceal for tex files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "tex", "markdown" },
-  callback = function()
-    vim.wo.conceallevel = 0
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "tex", "markdown" },
+--   callback = function()
+--     vim.wo.conceallevel = 0
+--   end,
+-- })
+
+-- Set fish as the default shell
+vim.opt.shell = "fish"
 
 -- Set 'option+shift+h' to move to the left window
 vim.api.nvim_set_keymap("n", "<A-H>", "<C-W>h", { noremap = true, silent = true })
@@ -36,3 +39,10 @@ vim.api.nvim_set_keymap("n", "<A-J>", "<C-W>j", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "<A-K>", "<C-W>k", { noremap = true, silent = true })
 -- Set 'option+shift+l' to move to the right window
 vim.api.nvim_set_keymap("n", "<A-L>", "<C-W>l", { noremap = true, silent = true })
+
+-- Neovide Configuration
+if vim.g.neovide then
+  vim.g.neovide_cursor_animation_length = 0
+end
+
+vim.cmd([[colorscheme tokyonight]])
