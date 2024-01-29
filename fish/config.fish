@@ -1,41 +1,11 @@
 set -gx PATH /usr/local/bin $PATH
-set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin/" $PATH
 set -gx PATH $PATH /Library/TeX/texbin
 set -gx MODULAR_HOME "/Users/tobydavis/.modular"
 set -gx PATH $PATH "/Users/tobydavis/.modular/pkg/packages.modular.com_mojo/bin"
-set -gx PATH $PATH /Users/tobydavis/opt/ripgrep/target/release
-set -gx PATH $PATH /Users/tobydavis/opt/lsd/target/release
 
-set -gx PATH $PATH /Users/tobydavis/opt/bin/
-set -gx PATH $PATH /Users/tobydavis/opt/gitoxide/target/release
-set -gx PATH $PATH /Users/tobydavis/opt/difftastic/target/release
-
-set -gx PATH $PATH /Users/tobydavis/opt/typst/target/release
-set -gx PATH $PATH /Users/tobydavis/opt/alacritty/target/release
-
-set -gx PATH $PATH /Users/tobydavis/opt/helix/target/release
-set -gx PATH $PATH /Users/tobydavis/opt/bottom/target/release
-set -gx PATH $PATH /Users/tobydavis/opt/zellij/target/release
 set -gx PATH $PATH "/Users/tobydavis/.local/bin"
-set -gx PATH $PATH /Users/tobydavis/opt/neovim/build/INSTALL/bin
-set -gx PATH $PATH /Users/tobydavis/opt/neovide/target/release
-
-set -gx PATH $PATH /Users/tobydavis/opt/starship/target/release
-
-set -gx PATH $PATH /Users/tobydavis/opt/sniffnet/target/release
-
-set -gx PATH $PATH /Users/tobydavis/opt/bat/target/release
 alias cat "bat --paging=never"
-
-set -gx HELIX_RUNTIME /Users/tobydavis/opt/helix/runtime
-
-set -gx PATH $PATH "/Users/tobydavis/.rustup/toolchains/nightly-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/bin"
-
-set -gx PATH "/opt/homebrew/opt/openjdk@21/bin" $PATH
-set -gx JAVA_HOME "/opt/homebrew/opt/openjdk@21"
-
-# Add homebrew last so it takes precedence (ends up first)
-set -gx PATH /opt/homebrew/bin $PATH
+alias catp "bat --paging=always"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

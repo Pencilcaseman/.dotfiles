@@ -387,7 +387,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
 args = ["--command=zellij"]
-program = "/opt/homebrew/bin/fish"
+program = "/Users/tobydavis/.nix-profile/bin/fish"
 
 [window]
 option_as_alt = "Both"

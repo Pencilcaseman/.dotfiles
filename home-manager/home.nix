@@ -17,7 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -36,24 +36,74 @@
     # '')
 
     # pkgs.htop
-    pkgs.bottom
-    pkgs.gitoxide
-    pkgs.lapce
-    pkgs.neovide
-    pkgs.ripgrep
-    pkgs.starship
-    pkgs.bat
-    pkgs.btop
-    pkgs.htop 
-    pkgs.helix
-    pkgs.neovim
-    pkgs.typst
-    pkgs.difftastic
-    pkgs.lsd 
-    pkgs.sniffnet 
-    pkgs.zellij
-    pkgs.alacritty
-    pkgs.rustup
+
+    # Terminals, shells and multiplexers
+    fish
+    starship
+    zellij
+    alacritty
+    lsd
+    alacritty
+    starship
+    lapce
+
+    # Terminal tools
+    bottom
+    gitoxide
+    ripgrep
+    bat
+    btop
+    htop
+    difftastic
+    cloc
+    glow
+    git
+    gh
+    lazygit
+    jellyfin-ffmpeg
+    fzf
+
+    # Terminal things (kinda useless but fun)
+    cmatrix
+    cowsay
+    lolcat
+    neofetch
+
+    # Editors
+    neovim
+    helix
+    neovide
+
+    # Languages
+    #  - Rust 
+    rustup
+
+    #  - Python 
+    python313
+    pypy310
+
+    #  - Typst
+    typst
+
+    #  - C/C++
+    libgccjit
+    llvmPackages_17.libllvm
+    llvmPackages_17.libcxxClang
+    cmake
+    doxygen
+    glew
+
+    #  - Java
+    jdk21
+
+    #  - LaTeX 
+    tectonic
+
+    #  - Lua 
+    luajit
+
+    # Apps
+    sniffnet
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

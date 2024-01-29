@@ -28,6 +28,14 @@ vim.opt.expandtab = true
 --   end,
 -- })
 
+-- Use '#' as the comment character for Nix files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "nix" },
+  callback = function()
+    vim.bo.commentstring = "# %s"
+  end,
+})
+
 -- Set fish as the default shell
 vim.opt.shell = "fish"
 
