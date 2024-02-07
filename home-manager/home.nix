@@ -62,6 +62,10 @@
     lazygit
     jellyfin-ffmpeg
     fzf
+    copilot-cli
+    thefuck
+    tree
+    speedtest-cli
 
     # Terminal things (kinda useless but fun)
     cmatrix
@@ -79,17 +83,21 @@
     rustup
 
     #  - Python 
-    python313
+    # python313
     pypy310
 
     #  - Typst
     typst
 
     #  - C/C++
-    libgccjit
+    # libgccjit
+    # gcc13
     llvmPackages_17.libllvm
     llvmPackages_17.libcxxClang
-    cmake
+    llvmPackages_17.libcxx
+    llvmPackages_17.libcxxabi
+    # cmake
+    cmakeCurses
     doxygen
     glew
 
@@ -102,8 +110,17 @@
     #  - Lua 
     luajit
 
+    #  - JavaScript, Typescript, CSS, etc. 
+    nodejs_21
+    typescript
+    eslint_d
+    prettierd
+
     # Apps
     sniffnet
+
+    # Libraries
+    libiconv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

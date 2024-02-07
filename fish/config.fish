@@ -2,10 +2,18 @@ set -gx PATH /usr/local/bin $PATH
 set -gx PATH $PATH /Library/TeX/texbin
 set -gx MODULAR_HOME "/Users/tobydavis/.modular"
 set -gx PATH $PATH "/Users/tobydavis/.modular/pkg/packages.modular.com_mojo/bin"
+set -gx PATH $PATH "/Users/tobydavis/.nix-profile/lib"
+
+set -gx PATH $PATH /Users/tobydavis/opt/bin
+
+
+set -gx LIBRARY_PATH $LIBRARY_PATH /Users/tobydavis/opt/OpenBLAS/build/INSTALL/lib
+
+set -gx LIBRARY_PATH $LIBRARY_PATH "/Users/tobydavis/.nix-profile/lib"
 
 set -gx PATH $PATH "/Users/tobydavis/.local/bin"
 alias cat "bat --paging=never"
-alias catp "bat --paging=always"
+alias catp "bat --paging=alway"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -18,8 +26,12 @@ alias lls "lsd -l"
 alias btmb "btm --basic"
 alias sg "gh copilot suggest"
 
-alias gcc gcc-13
-alias g++ "g++-13"
+# Set CC and CXX to clang
+set -gx CC clang
+set -gx CXX clang++
+
+# Do this last to ensure the correct python install is used 
+set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
 
 # --------------------------------------------------------------------------------------------
 
@@ -308,3 +320,5 @@ end
 # =====================================================================================================================
 
 starship init fish | source
+
+thefuck --alias | source
