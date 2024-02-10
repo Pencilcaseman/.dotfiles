@@ -66,6 +66,8 @@
     thefuck
     tree
     speedtest-cli
+    jq
+    rewrk
 
     # Terminal things (kinda useless but fun)
     cmatrix
@@ -92,10 +94,10 @@
     #  - C/C++
     # libgccjit
     # gcc13
-    llvmPackages_17.libllvm
-    llvmPackages_17.libcxxClang
-    llvmPackages_17.libcxx
-    llvmPackages_17.libcxxabi
+    # llvmPackages_17.libllvm
+    # llvmPackages_17.libcxxClang
+    # llvmPackages_17.libcxx
+    # llvmPackages_17.libcxxabi
     # cmake
     cmakeCurses
     doxygen
@@ -121,6 +123,7 @@
 
     # Libraries
     libiconv
+    darwin.Security
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -159,4 +162,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # pkgs.mkShell { buildInputs = [ darwin.apple_sdk.frameworks.Security pkgconfig openssl ]; }
 }
