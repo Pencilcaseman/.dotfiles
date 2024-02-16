@@ -6,6 +6,9 @@
   home.username = "tobydavis";
   home.homeDirectory = "/Users/tobydavis";
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -68,6 +71,7 @@
     speedtest-cli
     jq
     rewrk
+    zoxide
 
     # Terminal things (kinda useless but fun)
     cmatrix
@@ -99,9 +103,11 @@
     # llvmPackages_17.libcxx
     # llvmPackages_17.libcxxabi
     # cmake
+    # gnumake
     cmakeCurses
     doxygen
     glew
+    # cudaPackages.cuda_nvcc
 
     #  - Java
     jdk21

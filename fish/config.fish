@@ -1,17 +1,16 @@
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH $PATH /Library/TeX/texbin
-set -gx MODULAR_HOME "/Users/tobydavis/.modular"
-set -gx PATH $PATH "/Users/tobydavis/.modular/pkg/packages.modular.com_mojo/bin"
-set -gx PATH $PATH "/Users/tobydavis/.nix-profile/lib"
+set -gx MODULAR_HOME "$HOME/.modular"
+set -gx PATH $PATH "$HOME/.modular/pkg/packages.modular.com_mojo/bin"
+set -gx PATH $PATH "$HOME/.nix-profile/lib"
 
-set -gx PATH $PATH /Users/tobydavis/opt/bin
+set -gx PATH $PATH "$HOME/opt/bin"
 
+set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/opt/OpenBLAS/build/INSTALL/lib"
 
-set -gx LIBRARY_PATH $LIBRARY_PATH /Users/tobydavis/opt/OpenBLAS/build/INSTALL/lib
+set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/.nix-profile/lib"
 
-set -gx LIBRARY_PATH $LIBRARY_PATH "/Users/tobydavis/.nix-profile/lib"
-
-set -gx PATH $PATH "/Users/tobydavis/.local/bin"
+set -gx PATH $PATH "$HOME/.local/bin"
 alias cat "bat --paging=never"
 alias catp "bat --paging=alway"
 
@@ -320,5 +319,6 @@ end
 # =====================================================================================================================
 
 starship init fish | source
+zoxide init --cmd cd fish | source
 
 thefuck --alias | source
