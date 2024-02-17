@@ -55,6 +55,9 @@ end
 
 vim.cmd([[colorscheme tokyonight]])
 
+-- Break on words instead of characters
+vim.opt.linebreak = true
+
 -- local spec_treesitter = require("mini.ai").gen_spec.treesitter
 -- require("mini.ai").setup({
 --   custom_textobjects = {

@@ -319,6 +319,5 @@ end
 # =====================================================================================================================
 
 starship init fish | source
-zoxide init --cmd cd fish | source
-
 thefuck --alias | source
+zoxide init --cmd cd fish | source

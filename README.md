@@ -3,6 +3,13 @@ My tool configuration and dotfiles
 
 ## Installation and Configuration 
 
+Clone the repository into your home directory in a folder called `.config`. If you already have a `.config` folder, clone the repository somewhere else and copy whatever files you need.
+
+```
+cd ~/
+git clone https://github.com/Pencilcaseman/.dotfiles .config
+```
+
 ### Prerequisites
 #### [NixOS](https://nixos.org)
 
@@ -25,15 +32,6 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 ```
 
-### Installation
-
-Clone the repository into your home directory in a folder called `.config`. If you already have a `.config` folder, clone the repository somewhere else and copy whatever files you need.
-
-```
-cd ~/
-git clone https://github.com/Pencilcaseman/.dotfiles .config
-```
-
 #### Adjust the Home-Manager Configuration 
 After cloning the repository, `cd` into `home-manager/` and change the following to match your username and setup:
 
@@ -44,3 +42,21 @@ After cloning the repository, `cd` into `home-manager/` and change the following
     - `defaultPackage.aarch64-darwin = ...`: Replace references to `aarch64-darwin` with your target architecture
     - `"tobydavis" = home-manager.lib.homeManagerConfiguration`: Use your system username (the same as `home.username` from earlier)
     - `pkgs = import nixpkgs { system = "aarch64-darwin"; };`: Again, replace `aarch64-darwin` with your target architecture
+
+Note that you may need to add or remove some of the packages listed in `home.nix`. If you make a change, just run `home-manager switch` to use the new configuration.
+
+### Build and Use the Configuration 
+
+Finally, run the following command to start using the configuration 
+
+```
+home-manager switch
+```
+
+You can update the packages in the configuration by running 
+
+```
+cd ~/.config/home-manager 
+nix flake update 
+home-manager switch
+```
