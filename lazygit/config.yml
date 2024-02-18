@@ -1,0 +1,4 @@
+git:
+  paging:
+    externalDiffCommand: difft --color=always
+

@@ -25,9 +25,17 @@ alias lls "lsd -l"
 alias btmb "btm --basic"
 alias sg "gh copilot suggest"
 
+alias diff difft
+
+# todo: remove this when the next major release comes out
+set -gx PATH $PATH "$HOME/opt/lazygit"
+
 # Set CC and CXX to clang
 set -gx CC clang
 set -gx CXX clang++
+
+# Make lazygit look in .config/lazygit
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 # Do this last to ensure the correct python install is used 
 set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH

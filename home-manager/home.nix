@@ -62,7 +62,7 @@
     glow
     git
     gh
-    lazygit
+    # lazygit # Using master -- can use this after next release
     jellyfin-ffmpeg
     fzf
     copilot-cli
@@ -123,6 +123,9 @@
     typescript
     eslint_d
     prettierd
+
+    #  - Go 
+    go
 
     # Apps
     sniffnet
