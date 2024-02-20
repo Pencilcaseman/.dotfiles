@@ -65,6 +65,7 @@
     # lazygit # Using master -- can use this after next release
     jellyfin-ffmpeg
     fzf
+    fd
     copilot-cli
     thefuck
     tree
@@ -72,6 +73,7 @@
     jq
     rewrk
     zoxide
+    hyperfine
 
     # Terminal things (kinda useless but fun)
     cmatrix
