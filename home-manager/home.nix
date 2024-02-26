@@ -74,6 +74,7 @@
     rewrk
     zoxide
     hyperfine
+    rename
 
     # Terminal things (kinda useless but fun)
     cmatrix
