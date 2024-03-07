@@ -12,7 +12,7 @@ set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/.nix-profile/lib"
 
 set -gx PATH $PATH "$HOME/.local/bin"
 alias cat "bat --paging=never"
-alias catp "bat --paging=alway"
+alias catp "bat --paging=always"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

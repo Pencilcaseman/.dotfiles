@@ -71,3 +71,6 @@ vim.o.timeoutlen = 1000
 --     }),
 --   },
 -- })
+
+-- Disable copilot by default
+vim.cmd("Copilot disable")
