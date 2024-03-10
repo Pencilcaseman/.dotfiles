@@ -80,6 +80,10 @@
     hyperfine
     rename
 
+    autoconf269
+    libtool
+    automake
+
     # Terminal things (kinda useless but fun)
     cmatrix
     cowsay
@@ -139,6 +143,7 @@
 
     # Libraries
     libiconv
+    mpi
     darwin.Security
   ];
 
