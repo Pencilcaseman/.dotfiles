@@ -50,6 +50,10 @@
     starship
     lapce
 
+    # VMs
+    # ovftool
+    qemu
+
     # Terminal tools
     bottom
     gitoxide
