@@ -10,4 +10,17 @@ grammarly-languageserver
 jgit/
 nvim_backup/
 
+.gsd-keyboard.settings-ported
+GNOME-xdg-terminals.list
+dconf/
+evolution/
+gtk-3.0/
+ibus/
+monitors.xml
+pulse/
+user-dirs.dirs
+user-dirs.locale
+xdg-terminals.list
+environment.d/
+
 lazygit/state.yml
