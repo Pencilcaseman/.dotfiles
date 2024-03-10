@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tobydavis";
-  home.homeDirectory = "/Users/tobydavis";
+  home.homeDirectory = "/home/tobydavis";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -39,6 +39,8 @@
     # '')
 
     # pkgs.htop
+
+    nerdfonts
 
     # Terminals, shells and multiplexers
     fish

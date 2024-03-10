@@ -10,12 +10,12 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }: {
-    defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+    defaultPackage.aarch64-linux = home-manager.defaultPackage.aarch64-linux;
 
     homeConfigurations = {
       "tobydavis" = home-manager.lib.homeManagerConfiguration
         {
-          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          pkgs = import nixpkgs { system = "aarch64-linux"; };
 
           modules = [ ./home.nix ];
         };
