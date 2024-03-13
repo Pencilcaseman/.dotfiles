@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tobydavis";
-  home.homeDirectory = "/home/tobydavis";
+  home.homeDirectory = "/Users/tobydavis";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
