@@ -60,6 +60,7 @@
     bottom
     gitoxide
     ripgrep
+    gping
     bat
     btop
     htop
