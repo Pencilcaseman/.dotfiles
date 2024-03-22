@@ -31,8 +31,10 @@ alias diff difft
 set -gx PATH $PATH "$HOME/opt/lazygit"
 
 # Set CC and CXX to clang
-set -gx CC clang
-set -gx CXX clang++
+set -gx CC gcc # clang
+set -gx cc gcc
+set -gx CXX g++ # clang++
+set -gx cxx g++
 
 # Make lazygit look in .config/lazygit
 set -gx XDG_CONFIG_HOME "$HOME/.config"

@@ -111,17 +111,28 @@
 
     #  - C/C++
     # libgccjit
-    # gcc13
-    # llvmPackages_17.libllvm
-    # llvmPackages_17.libcxxClang
-    # llvmPackages_17.libcxx
-    # llvmPackages_17.libcxxabi
+
+    # The following may cause issues when compiling with 
+    # Apple-related things.
+    # (hiPrio gcc13)
+    # (lowPrio llvmPackages_17.libllvm)
+    # (lowPrio llvmPackages_17.libcxxClang)
+    # (lowPrio llvmPackages_17.libcxx)
+    # (lowPrio llvmPackages_17.libcxxabi)
+
     # cmake
     # gnumake
     cmakeCurses
     doxygen
     glew
     # cudaPackages.cuda_nvcc
+
+    # Fortran 
+    # (gfortran13.overrideAttrs (oldAttrs: {
+    #   postInstall = (oldAttrs.postInstall or "") + ''
+    #     rm -f $out/bin/g++
+    #   '';
+    # }))
 
     #  - Java
     jdk21
@@ -137,6 +148,7 @@
     typescript
     eslint_d
     prettierd
+    corepack_21
 
     #  - Go 
     go
