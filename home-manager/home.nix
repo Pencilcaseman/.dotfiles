@@ -110,6 +110,7 @@
     typst
 
     #  - C/C++
+    cppcheck
     # libgccjit
 
     # The following may cause issues when compiling with 
