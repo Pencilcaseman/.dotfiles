@@ -82,6 +82,7 @@
     zoxide
     hyperfine
     rename
+    just
 
     autoconf269
     libtool
