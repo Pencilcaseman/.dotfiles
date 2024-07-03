@@ -24,3 +24,5 @@ xdg-terminals.list
 environment.d/
 
 lazygit/state.yml
+raycast
+zed

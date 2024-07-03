@@ -40,6 +40,9 @@
 
     # pkgs.htop
 
+    # Makes the output pretty :)
+    nix-output-monitor
+
     nerdfonts
 
     # Terminals, shells and multiplexers
@@ -51,6 +54,9 @@
     alacritty
     starship
     lapce
+
+    # GNUPlot
+    # gnuplot
 
     # VMs
     # ovftool
@@ -67,7 +73,7 @@
     difftastic
     cloc
     glow
-    git
+    # git
     gh
     # lazygit # Using master -- can use this after next release
     jellyfin-ffmpeg
@@ -83,6 +89,7 @@
     hyperfine
     rename
     just
+    watch
 
     autoconf269
     libtool
@@ -97,11 +104,12 @@
     # Editors
     neovim
     helix
-    neovide
+    # neovide
 
     # Languages
     #  - Rust 
     rustup
+    bacon
 
     #  - Python 
     # python313
@@ -112,15 +120,20 @@
 
     #  - C/C++
     cppcheck
+    lld
     # libgccjit
-
-    # The following may cause issues when compiling with 
+ 
+    # WARNING: The following may cause issues when compiling with 
     # Apple-related things.
+    # NOTE: Currently replaced with custom installations
+    #
     # (hiPrio gcc13)
     # (lowPrio llvmPackages_17.libllvm)
     # (lowPrio llvmPackages_17.libcxxClang)
     # (lowPrio llvmPackages_17.libcxx)
-    # (lowPrio llvmPackages_17.libcxxabi)
+    
+    # Haskell
+    ghc
 
     # cmake
     # gnumake
@@ -141,16 +154,18 @@
 
     #  - LaTeX 
     tectonic
+    pandoc
 
     #  - Lua 
     luajit
 
     #  - JavaScript, Typescript, CSS, etc. 
-    nodejs_21
+    nodejs_20
     typescript
     eslint_d
     prettierd
-    corepack_21
+    corepack_20
+    bun
 
     #  - Go 
     go
@@ -160,7 +175,8 @@
 
     # Libraries
     libiconv
-    mpi
+    zlib
+    # mpi
     darwin.Security
   ];
 

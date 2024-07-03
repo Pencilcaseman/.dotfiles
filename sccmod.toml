@@ -1,0 +1,5 @@
+sccmod_module_paths = ["/Users/tobydavis/opt/sccmod/modulefiles"]
+modulefile_root = "/Users/tobydavis/apps/modulefiles"
+build_root = "/Users/tobydavis/apps/module_build"
+install_root = "/Users/tobydavis/apps/modules"
+shell = "fish"

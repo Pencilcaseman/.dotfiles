@@ -1,0 +1,11 @@
+exit
+exit ()
+.exit
+exit 0
+exit()
+exit
+clear
+hello :: String -> String ()
+hello :: [String] -> String
+hello :: String -> String
+5 * 2

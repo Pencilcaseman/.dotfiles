@@ -1,3 +1,7 @@
+# ssh-add --apple-use-keychain ~/.ssh/id_epcc
+
+set -gx SCCMOD_CONFIG "$HOME/.config/sccmod.toml"
+
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH $PATH /Library/TeX/texbin
 set -gx MODULAR_HOME "$HOME/.modular"
@@ -10,15 +14,43 @@ set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/opt/OpenBLAS/build/INSTALL/lib"
 
 set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/.nix-profile/lib"
 
+# TCL
+set -gx TCLHOME /Users/tobydavis/opt/tcl/unix/INSTALL
+set -gx PATH "$TCLHOME/bin" $PATH
+set -gx CPATH "$TCLHOME/include" $CPATH
+set -gx LD_LIBRARY_PATH "$TCLHOME/lib" $LD_LIBRARY_PATH
+set -gx LIBRARY_PATH "$TCLHOME/lib" $LIBRARY_PATH
+
+# Modules
+set -gx MODULE_HOME /Users/tobydavis/opt/modules/install
+source $MODULE_HOME/init/fish
+source $MODULE_HOME/init/fish_completion
+
+# set -gx MODULEPATH $HOME/apps/modulefiles $MODULEPATH
+set -gx MODULEPATH $HOME/apps/modulefiles/compiler $MODULEPATH
+set -gx MODULEPATH $HOME/apps/modulefiles/linalg $MODULEPATH
+set -gx MODULEPATH $HOME/apps/modulefiles/mpi $MODULEPATH
+
+# Flavours
+set -gx TCLLIBPATH /Users/tobydavis/opt/flavours/
+
+# MPI
+set -gx PATH /Users/tobydavis/opt/ompi/INSTALL/bin $PATH
+set -gx LIBRARY_PATH /Users/tobydavis/opt/ompi/INSTALL/lib $LIBRARY_PATH
+set -gx LD_LIBRARY_PATH /Users/tobydavis/opt/ompi/INSTALL/lib $LD_LIBRARY_PATH
+set -gx CPATH /Users/tobydavis/opt/ompi/INSTALL/include $CPATH
+
+# Cat (bat)
 set -gx PATH $PATH "$HOME/.local/bin"
-alias cat "bat --paging=never"
-alias catp "bat --paging=always"
+alias cat "bat --paging=always"
+alias catp "bat --paging=never"
+alias ccat /bin/cat
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -gx RUSTFLAGS "-C target-cpu=native"
+set -gx RUSTFLAGS "-C target-cpu=native -C link-arg=-fuse-ld=lld"
 
 alias ls lsd
 alias lls "lsd -l"
@@ -26,6 +58,8 @@ alias btmb "btm --basic"
 alias sg "gh copilot suggest"
 
 alias diff difft
+
+alias lg lazygit
 
 # todo: remove this when the next major release comes out
 set -gx PATH $PATH "$HOME/opt/lazygit"
@@ -41,6 +75,12 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 # Do this last to ensure the correct python install is used 
 set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
+
+# Set CARGO_REGISTRY_TOKEN
+# $HOME/opt/bin/set_cargo_token.sh
+set -gx CARGO_REGISTRY_TOKEN (cat $HOME/opt/cargo_token.txt)
+
+set -gx SDKROOT (xcrun --sdk macosx14.5 --show-sdk-path)
 
 # --------------------------------------------------------------------------------------------
 

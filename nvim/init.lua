@@ -20,6 +20,22 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+require("conform").setup({
+  formatters_by_ft = {
+    cpp = { "clang-format" },
+    c = { "clang-format" },
+  },
+  format_on_save = true,
+  opts = {
+    format = {
+      extra_options = {
+        -- Specify the path to your .clang-format file
+        config = "/Users/tobydavis/dev/librapid_dev/.clang-format",
+      },
+    },
+  },
+})
+
 -- Disable conceal for tex files
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = { "tex", "markdown" },
@@ -53,7 +69,8 @@ if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0
 end
 
-vim.cmd([[colorscheme tokyonight]])
+-- vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme ayu]])
 
 -- Break on words instead of characters
 vim.opt.linebreak = true
@@ -74,3 +91,12 @@ vim.o.timeoutlen = 1000
 
 -- Disable copilot by default
 vim.cmd("Copilot disable")
+
+-- require("lazy").setup({
+--   {
+--     "supermaven-inc/supermaven-nvim",
+--     config = function()
+--       require("supermaven-nvim").setup({})
+--     end,
+--   },
+-- }, {})

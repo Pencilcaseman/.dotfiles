@@ -1,7 +1,8 @@
 live_config_reload = true
 
 import = [
-    "/Users/tobydavis/.config/alacritty/themes/themes/tokyo-night-storm.toml",
+    # "/Users/tobydavis/.config/alacritty/themes/themes/tokyo-night-storm.toml",
+    "/Users/tobydavis/.config/alacritty/themes/themes/ayu_dark.toml",
 ]
 
 [bell]
@@ -48,7 +49,8 @@ draw_bold_text_with_bright_colors = false
 size = 13.0
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "MonaSpiceNe Nerd Font"
 style = "Medium"
 
 [font.glyph_offset]
@@ -56,11 +58,13 @@ x = 0
 y = 0
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "MonaSpiceNe Nerd Font"
 style = "Light Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "MonaSpiceNe Nerd Font"
 style = "Light"
 
 [font.offset]
