@@ -82,6 +82,11 @@ set -gx CARGO_REGISTRY_TOKEN (cat $HOME/opt/cargo_token.txt)
 
 set -gx SDKROOT (xcrun --sdk macosx14.5 --show-sdk-path)
 
+set -gx CPATH /Users/tobydavis/opt/gmp-6.3.0/INSTALL/include $CPATH
+set -gx LIBRARY_PATH /Users/tobydavis/opt/gmp-6.3.0/INSTALL/lib $LIBRARY_PATH
+set -gx CPATH /Users/tobydavis/opt/mpfr-4.2.1/INSTALL/include $CPATH
+set -gx LIBRARY_PATH /Users/tobydavis/opt/mpfr-4.2.1/INSTALL/lib $LIBRARY_PATH
+
 # --------------------------------------------------------------------------------------------
 
 set fish_greeting "" # disable fish greeting

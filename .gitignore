@@ -26,3 +26,4 @@ environment.d/
 lazygit/state.yml
 raycast
 zed
+ghc/ghci_history

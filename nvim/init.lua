@@ -36,6 +36,10 @@ require("conform").setup({
   },
 })
 
+vim.keymap.set("n", "<leader>th", function()
+  vim.lsp.inlay_hint(0, nil)
+end, { desc = "Toggle Inlay Hints" })
+
 -- Disable conceal for tex files
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = { "tex", "markdown" },
