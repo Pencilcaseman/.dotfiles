@@ -73,8 +73,34 @@ if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0
 end
 
+-- Create an autocommand group
+local quickscope_group = vim.api.nvim_create_augroup("qs_colors", { clear = true })
+
+-- Create autocommands within the group
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = quickscope_group,
+  callback = function()
+    vim.api.nvim_set_hl(0, "QuickScopePrimary", {
+      fg = "#FF08A5",
+      underline = true,
+      ctermfg = 155,
+      cterm = { underline = true },
+    })
+    vim.api.nvim_set_hl(0, "QuickScopeSecondary", {
+      fg = "#40FF1D",
+      underline = true,
+      ctermfg = 81,
+      cterm = { underline = true },
+    })
+  end,
+})
+
 -- vim.cmd([[colorscheme tokyonight]])
 vim.cmd([[colorscheme ayu]])
+
+-- Set the line number color
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#C1AE89" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#E0585D" })
 
 -- Break on words instead of characters
 vim.opt.linebreak = true
@@ -95,12 +121,3 @@ vim.o.timeoutlen = 1000
 
 -- Disable copilot by default
 vim.cmd("Copilot disable")
-
--- require("lazy").setup({
---   {
---     "supermaven-inc/supermaven-nvim",
---     config = function()
---       require("supermaven-nvim").setup({})
---     end,
---   },
--- }, {})
