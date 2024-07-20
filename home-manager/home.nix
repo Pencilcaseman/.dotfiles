@@ -63,6 +63,7 @@
     qemu
 
     # Terminal tools
+    gnused
     bottom
     gitoxide
     ripgrep
@@ -174,6 +175,8 @@
     sniffnet
 
     # Libraries
+    protobuf
+    pkg-config
     libiconv
     zlib
     # mpi
