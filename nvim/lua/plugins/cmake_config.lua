@@ -2,8 +2,6 @@ local M = {}
 
 -- Function to get the project root directory
 function M.get_project_root()
-  -- This is a simple implementation. You might want to use a more robust method
-  -- like checking for the presence of a CMakeLists.txt file
   return vim.fn.getcwd()
 end
 
@@ -72,9 +70,5 @@ end
 -- Create custom commands
 vim.api.nvim_create_user_command("CMakeInit", M.cmake_init, {})
 vim.api.nvim_create_user_command("CMakeBuild", M.cmake_build, {})
-
--- Optional: Create keybindings
-vim.keymap.set("n", "<leader>ci", M.cmake_init, { desc = "Initialize CMake project" })
-vim.keymap.set("n", "<leader>cb", M.cmake_build, { desc = "Build CMake project" })
 
 return M

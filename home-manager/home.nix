@@ -160,6 +160,9 @@
     #  - Lua 
     luajit
 
+    #  - Julia 
+    julia_19-bin
+
     #  - JavaScript, Typescript, CSS, etc. 
     nodejs_20
     typescript

@@ -127,3 +127,6 @@ vim.cmd([[set wrap]])
 
 -- Map 'space rg' to GrugFar
 vim.api.nvim_set_keymap("n", "<leader>rg", ":GrugFar<CR>", { noremap = true, silent = true })
+
+-- Set 'noignorecase' so search commands are case sensitive
+vim.opt.ignorecase = false
