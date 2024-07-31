@@ -129,4 +129,4 @@ vim.cmd([[set wrap]])
 vim.api.nvim_set_keymap("n", "<leader>rg", ":GrugFar<CR>", { noremap = true, silent = true })
 
 -- Set 'noignorecase' so search commands are case sensitive
-vim.opt.ignorecase = false
+-- vim.opt.ignorecase = false
