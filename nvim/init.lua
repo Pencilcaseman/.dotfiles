@@ -102,6 +102,9 @@ vim.cmd([[colorscheme ayu]])
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#C1AE89" })
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#E0585D" })
 
+-- Set the visual mode selection color
+vim.api.nvim_set_hl(0, "Visual", { bg = "#2A2753" })
+
 -- Break on words instead of characters
 vim.opt.linebreak = true
 

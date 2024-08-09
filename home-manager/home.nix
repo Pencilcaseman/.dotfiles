@@ -128,10 +128,10 @@
     # Apple-related things.
     # NOTE: Currently replaced with custom installations
     #
-    (hiPrio gcc13)
-    (lowPrio llvmPackages_17.libllvm)
-    (lowPrio llvmPackages_17.libcxxClang)
-    (lowPrio llvmPackages_17.libcxx)
+    # (hiPrio gcc13)
+    # (lowPrio llvmPackages_17.libllvm)
+    # (lowPrio llvmPackages_17.libcxxClang)
+    # (lowPrio llvmPackages_17.libcxx)
     
     # Haskell
     ghc
