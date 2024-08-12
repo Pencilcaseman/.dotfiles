@@ -2,6 +2,9 @@
 
 set -gx SCCMOD_CONFIG "$HOME/.config/sccmod.toml"
 
+# X11 binaries
+set -gx PATH /usr/X11/bin $PATH
+
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH $PATH /Library/TeX/texbin
 set -gx MODULAR_HOME "$HOME/.modular"
