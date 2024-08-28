@@ -105,6 +105,9 @@ vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#E0585D" })
 -- Set the visual mode selection color
 vim.api.nvim_set_hl(0, "Visual", { bg = "#2A2753" })
 
+-- Set the inlay hint color
+vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#5577A1" })
+
 -- Break on words instead of characters
 vim.opt.linebreak = true
 
@@ -132,8 +135,35 @@ vim.cmd([[set wrap]])
 vim.api.nvim_set_keymap("n", "<leader>rg", ":GrugFar<CR>", { noremap = true, silent = true })
 
 -- Set 'noignorecase' so search commands are case sensitive
--- vim.opt.ignorecase = false
+vim.opt.ignorecase = false
 
 -- Swap '0' and '^'
 vim.keymap.set("n", "0", "^", { noremap = true })
 vim.keymap.set("n", "^", "0", { noremap = true })
+vim.keymap.set("v", "0", "^", { noremap = true })
+vim.keymap.set("v", "^", "0", { noremap = true })
+
+-- Resession Configuration
+local resession = require("resession")
+resession.setup()
+vim.keymap.set("n", "<leader>sS", resession.save)
+vim.keymap.set("n", "<leader>sL", resession.load)
+vim.keymap.set("n", "<leader>sD", resession.delete)
+
+-- Create a new directory-specific session when Neovim exits.
+-- Reload the session when Neovim starts if no args were passed
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    -- Only load the session if nvim was started with no args
+    if vim.fn.argc(-1) == 0 then
+      -- Save these to a different directory, so our manual sessions don't get polluted
+      resession.load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+    end
+  end,
+  nested = true,
+})
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  callback = function()
+    resession.save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
+  end,
+})

@@ -53,7 +53,15 @@
     lsd
     alacritty
     starship
-    lapce
+    # lapce
+
+    # Czkawka (doesn't work)
+    glib
+    # gtk4
+    # librsvg 
+    # libheif 
+    # libraw
+    # czkawka
 
     # GNUPlot
     # gnuplot
@@ -63,6 +71,8 @@
     qemu
 
     # Terminal tools
+    texinfoInteractive
+    git
     gnused
     bottom
     gitoxide
@@ -132,7 +142,7 @@
     # (lowPrio llvmPackages_17.libllvm)
     # (lowPrio llvmPackages_17.libcxxClang)
     # (lowPrio llvmPackages_17.libcxx)
-    
+    #
     # Haskell
     ghc
 
@@ -178,6 +188,8 @@
     sniffnet
 
     # Libraries
+    libfabric
+    m4
     protobuf
     pkg-config
     libiconv

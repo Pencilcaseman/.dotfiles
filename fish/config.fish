@@ -10,6 +10,7 @@ set -gx PATH $PATH /Library/TeX/texbin
 set -gx MODULAR_HOME "$HOME/.modular"
 set -gx PATH $PATH "$HOME/.modular/pkg/packages.modular.com_mojo/bin"
 set -gx PATH $PATH "$HOME/.nix-profile/lib"
+set -gx PATH /Users/tobydavis/.codon/bin $PATH
 
 set -gx PATH $PATH "$HOME/opt/bin"
 
@@ -30,9 +31,13 @@ source $MODULE_HOME/init/fish
 source $MODULE_HOME/init/fish_completion
 
 # set -gx MODULEPATH $HOME/apps/modulefiles $MODULEPATH
-set -gx MODULEPATH $HOME/apps/modulefiles/compiler $MODULEPATH
-set -gx MODULEPATH $HOME/apps/modulefiles/linalg $MODULEPATH
-set -gx MODULEPATH $HOME/apps/modulefiles/mpi $MODULEPATH
+set -gx MODULEPATH
+set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/compiler
+set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/mpi
+set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/linalg
+set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/profiler
+set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/pmix
+set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/util
 
 # Flavours
 set -gx TCLLIBPATH /Users/tobydavis/opt/flavours/
@@ -378,4 +383,4 @@ end
 
 starship init fish | source
 thefuck --alias | source
-zoxide init --cmd cd fish | source
+zoxide init fish | source
