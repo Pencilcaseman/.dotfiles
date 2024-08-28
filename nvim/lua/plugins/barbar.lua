@@ -14,15 +14,16 @@ return {
     tabpages = true,
     clickable = true,
     icons = {
-      buffer_index = false,
+      buffer_index = true,
       buffer_number = false,
       button = "",
+
       -- Use the default icons for diagnostics
       diagnostics = {
         [vim.diagnostic.severity.ERROR] = { enabled = true },
         [vim.diagnostic.severity.WARN] = { enabled = true },
-        [vim.diagnostic.severity.INFO] = { enabled = true },
-        [vim.diagnostic.severity.HINT] = { enabled = true },
+        -- [vim.diagnostic.severity.INFO] = { enabled = true },
+        -- [vim.diagnostic.severity.HINT] = { enabled = true },
       },
       gitsigns = {
         added = { enabled = true, icon = "+" },
@@ -33,17 +34,17 @@ return {
         custom_colors = false,
         enabled = true,
       },
-      separator = { left = "▎", right = "" },
-      modified = { button = "●" },
-      pinned = { button = "車", filename = true },
+      separator = { left = "", right = "" },
+      modified = { button = "󰧞" },
+      pinned = { button = "󰐃", filename = true },
       alternate = { filetype = { enabled = false } },
       current = { buffer_index = true },
-      inactive = { button = "×" },
+      inactive = { button = "" },
       visible = { modified = { buffer_number = false } },
     },
     insert_at_end = false,
     insert_at_start = false,
-    maximum_padding = 1,
+    maximum_padding = 8192,
     minimum_padding = 1,
     maximum_length = 30,
     semantic_letters = true,
@@ -57,7 +58,7 @@ return {
     local map = vim.api.nvim_set_keymap
     local opts = { noremap = true, silent = true }
 
-    -- Move to previous/next with H and L
+    -- Move left/right with H and L
     map("n", "<A-H>", "<Cmd>BufferPrevious<CR>", opts)
     map("n", "<A-L>", "<Cmd>BufferNext<CR>", opts)
 
@@ -84,13 +85,22 @@ return {
     map("n", "<Space>bc", "<Cmd>BufferClose<CR>", opts)
 
     -- Magic buffer-picking mode with Space b g OR Space w
-    -- map("n", "<Space>bg", "<Cmd>BufferPick<CR>", opts)
-    map("n", "<Space>ww", "<Cmd>BufferPick<CR>", opts)
+    map("n", "<Space>bg", "<Cmd>BufferPick<CR>", opts)
+    -- map("n", "<Space>ww", "<Cmd>BufferPick<CR>", opts)
 
     -- Sort automatically by...
     map("n", "<Space>bn", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
     map("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
     map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
     map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
+
+    vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
+      group = vim.api.nvim_create_augroup("Color", {}),
+      pattern = "*",
+      callback = function()
+        vim.api.nvim_set_hl(0, "BufferCurrentIndex", { fg = "#E6B450", bold = true })
+        vim.api.nvim_set_hl(0, "BufferInactiveIndex", { fg = "#836426" })
+      end,
+    })
   end,
 }
