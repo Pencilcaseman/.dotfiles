@@ -25,20 +25,20 @@ require("conform").setup({
     cpp = { "clang-format" },
     c = { "clang-format" },
   },
-  format_on_save = true,
+  format_on_save = false,
   opts = {
     format = {
       extra_options = {
         -- Specify the path to your .clang-format file
-        config = "/Users/tobydavis/dev/librapid_dev/.clang-format",
+        -- config = "/Users/tobydavis/dev/librapid_dev/.clang-format",
       },
     },
   },
 })
 
-vim.keymap.set("n", "<leader>th", function()
-  vim.lsp.inlay_hint(0, nil)
-end, { desc = "Toggle Inlay Hints" })
+-- vim.keymap.set("n", "<leader>th", function()
+--   vim.lsp.inlay_hint(0, nil)
+-- end, { desc = "Toggle Inlay Hints" })
 
 -- Disable conceal for tex files
 -- vim.api.nvim_create_autocmd("FileType", {

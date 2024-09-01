@@ -132,6 +132,7 @@
     #  - C/C++
     cppcheck
     lld
+    lldb
     # libgccjit
  
     # WARNING: The following may cause issues when compiling with 

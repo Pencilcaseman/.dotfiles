@@ -42,41 +42,50 @@ return {
       inactive = { button = "" },
       visible = { modified = { buffer_number = false } },
     },
-    insert_at_end = false,
+    insert_at_end = true,
     insert_at_start = false,
-    maximum_padding = 8192,
+    maximum_padding = 1,
     minimum_padding = 1,
     maximum_length = 30,
     semantic_letters = true,
     letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
     no_name_title = nil,
   },
-  config = function(_, opts)
-    require("barbar").setup(opts)
+  config = function(_, fn_opts)
+    require("barbar").setup(fn_opts)
 
     -- Keymaps for barbar
     local map = vim.api.nvim_set_keymap
     local opts = { noremap = true, silent = true }
 
     -- Move left/right with H and L
-    map("n", "<A-H>", "<Cmd>BufferPrevious<CR>", opts)
-    map("n", "<A-L>", "<Cmd>BufferNext<CR>", opts)
+    map(
+      "n",
+      "<Space>hh",
+      "<Cmd>BufferPrevious<CR>",
+      { noremap = true, silent = true, desc = "Move to the left buffer" }
+    )
+    map("n", "<Space>ll", "<Cmd>BufferNext<CR>", { noremap = true, silent = true, desc = "Move to the right buffer" })
+
+    -- Move left/right with Space b H and L using a function instead of a command call
+    map("n", "<Space>bH", "<Cmd>lua require('barbar').move_left()<CR>", opts)
+    map("n", "<Space>bL", "<Cmd>lua require('barbar').move_right()<CR>", opts)
 
     -- Re-order to previous/next with Space b < >
     map("n", "<Space>b<", "<Cmd>BufferMovePrevious<CR>", opts)
     map("n", "<Space>b>", "<Cmd>BufferMoveNext<CR>", opts)
 
     -- Goto buffer in position with Space b 1-9
-    map("n", "<Space>b1", "<Cmd>BufferGoto 1<CR>", opts)
-    map("n", "<Space>b2", "<Cmd>BufferGoto 2<CR>", opts)
-    map("n", "<Space>b3", "<Cmd>BufferGoto 3<CR>", opts)
-    map("n", "<Space>b4", "<Cmd>BufferGoto 4<CR>", opts)
-    map("n", "<Space>b5", "<Cmd>BufferGoto 5<CR>", opts)
-    map("n", "<Space>b6", "<Cmd>BufferGoto 6<CR>", opts)
-    map("n", "<Space>b7", "<Cmd>BufferGoto 7<CR>", opts)
-    map("n", "<Space>b8", "<Cmd>BufferGoto 8<CR>", opts)
-    map("n", "<Space>b9", "<Cmd>BufferGoto 9<CR>", opts)
-    map("n", "<Space>b0", "<Cmd>BufferLast<CR>", opts)
+    map("n", "<Space>1", "<Cmd>BufferGoto 1<CR>", opts)
+    map("n", "<Space>2", "<Cmd>BufferGoto 2<CR>", opts)
+    map("n", "<Space>3", "<Cmd>BufferGoto 3<CR>", opts)
+    map("n", "<Space>4", "<Cmd>BufferGoto 4<CR>", opts)
+    map("n", "<Space>5", "<Cmd>BufferGoto 5<CR>", opts)
+    map("n", "<Space>6", "<Cmd>BufferGoto 6<CR>", opts)
+    map("n", "<Space>7", "<Cmd>BufferGoto 7<CR>", opts)
+    map("n", "<Space>8", "<Cmd>BufferGoto 8<CR>", opts)
+    map("n", "<Space>9", "<Cmd>BufferGoto 9<CR>", opts)
+    map("n", "<Space>0", "<Cmd>BufferLast<CR>", opts)
 
     -- Pin/unpin buffer with Space b p
     map("n", "<Space>bp", "<Cmd>BufferPin<CR>", opts)
