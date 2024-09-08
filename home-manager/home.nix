@@ -42,6 +42,7 @@
 
     # Makes the output pretty :)
     nix-output-monitor
+    nh
 
     nerdfonts
 
@@ -144,6 +145,8 @@
     # (lowPrio llvmPackages_17.libcxxClang)
     # (lowPrio llvmPackages_17.libcxx)
     #
+    # llvmPackages_19.clang-tools
+
     # Haskell
     ghc
 
@@ -187,6 +190,7 @@
 
     # Apps
     sniffnet
+    czkawka
 
     # Libraries
     libfabric

@@ -32,5 +32,4 @@ keymap(
 
 keymap("n", "<Leader>dq", "<cmd> lua require'dap'.terminate()<cr>", { desc = "Terminate" })
 keymap("n", "<Leader>dr", "<cmd> lua require'dap'.run_last()<cr>", { desc = "Run Last" })
-
 keymap("n", "<Leader>dC", "<cmd> lua require'dap'.run_to_cursor()<cr>", { desc = "Run to Cursor" })

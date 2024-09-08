@@ -384,3 +384,4 @@ end
 starship init fish | source
 thefuck --alias | source
 zoxide init fish | source
+nh completions --shell fish | source

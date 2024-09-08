@@ -2,6 +2,26 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
+      clangd = {
+        cmd = {
+          -- "/Users/tobydavis/.nix-profile/bin/clangd",
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--enable-config",
+          -- "--clang-tidy-checks=*,",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--function-arg-placeholders",
+          "--fallback-style=llvm",
+        },
+        init_options = {
+          clangdFileStatus = true,
+          usePlaceholders = true,
+          completeUnimported = true,
+          semanticHighlighting = true,
+        },
+      },
       -- Ensure mason installs the server
       -- rust_analyzer = {
       --   keys = {

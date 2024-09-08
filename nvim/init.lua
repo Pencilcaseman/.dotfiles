@@ -146,9 +146,14 @@ vim.keymap.set("v", "^", "0", { noremap = true })
 -- Resession Configuration
 local resession = require("resession")
 resession.setup()
-vim.keymap.set("n", "<leader>sS", resession.save)
-vim.keymap.set("n", "<leader>sL", resession.load)
-vim.keymap.set("n", "<leader>sD", resession.delete)
+
+vim.keymap.set("n", "<leader>sS", function()
+  local session_name = vim.fn.input("Save Session As: ")
+  resession.save(session_name, { notify = true })
+end, { silent = true, desc = "Save Session" })
+
+vim.keymap.set("n", "<leader>sL", resession.load, { silent = true, desc = "Load Session" })
+vim.keymap.set("n", "<leader>sD", resession.delete, { silent = true, desc = "Delete Session" })
 
 -- Create a new directory-specific session when Neovim exits.
 -- Reload the session when Neovim starts if no args were passed
@@ -167,3 +172,17 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     resession.save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
   end,
 })
+
+-- Does this work?
+-- vim.defer_fn(function()
+--   print("Setting up hardtime")
+--
+--   vim.keymap.set({ "n", "x" }, "j", function()
+--     return vim.v.count > 0 and "j" or "gj"
+--   end, { noremap = true, expr = true })
+--   vim.keymap.set({ "n", "x" }, "k", function()
+--     return vim.v.count > 0 and "k" or "gk"
+--   end, { noremap = true, expr = true })
+--
+--   -- require("hardtime").setup()
+-- end, 500)
