@@ -5,7 +5,28 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Vim -- Caps Lock to Ctrl+L",
+                        "description": "Tmux -- CMD+: to CTRL+b",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": ["control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Vim -- Caps Lock to Shift+Tab",
                         "manipulators": [
                             {
                                 "from": {
@@ -17,8 +38,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "l",
-                                        "modifiers": ["left_control"]
+                                        "key_code": "tab",
+                                        "modifiers": ["shift"]
                                     }
                                 ],
                                 "type": "basic"
@@ -29,6 +50,19 @@
             },
             "name": "Default profile",
             "selected": true
+        },
+        {
+            "name": "Windows",
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "left_command" },
+                    "to": [{ "key_code": "left_control" }]
+                },
+                {
+                    "from": { "key_code": "left_control" },
+                    "to": [{ "key_code": "left_command" }]
+                }
+            ]
         },
         {
             "name": "Minecraft",

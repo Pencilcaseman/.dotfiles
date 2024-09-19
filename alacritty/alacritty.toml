@@ -412,8 +412,19 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-args = ["--command=zellij"]
+# args = ["--command=zellij"]
+
+# program = "/Users/tobydavis/.nix-profile/bin/fish"
+# args = ["--login", "-c", "tmux a -t base || tmux new -s base"]
+
 program = "/Users/tobydavis/.nix-profile/bin/fish"
+args = ["-c tmux"]
+
+# args = [
+#     "--login",
+#     "-c",
+#     "tmux a -t base -- /Users/tobydavis/.nix-profile/bin/fish || tmux new -s base -- /Users/tobydavis/.nix-profile/bin/fish",
+# ]
 
 [window]
 option_as_alt = "Both"

@@ -50,6 +50,7 @@
     fish
     starship
     zellij
+    tmux
     alacritty
     lsd
     alacritty
@@ -118,6 +119,8 @@
     helix
     neovide
 
+    tree-sitter
+
     # Languages
     #  - Rust 
     rustup
@@ -141,9 +144,9 @@
     # NOTE: Currently replaced with custom installations
     #
     # (hiPrio gcc13)
-    # (lowPrio llvmPackages_17.libllvm)
-    # (lowPrio llvmPackages_17.libcxxClang)
-    # (lowPrio llvmPackages_17.libcxx)
+    (lowPrio llvmPackages_17.libllvm)
+    (lowPrio llvmPackages_17.libcxxClang)
+    (lowPrio llvmPackages_17.libcxx)
     #
     # llvmPackages_19.clang-tools
 
@@ -172,7 +175,8 @@
     pandoc
 
     #  - Lua 
-    luajit
+    (hiPrio lua)
+    (lowPrio luajit)
 
     #  - Julia 
     julia_19-bin

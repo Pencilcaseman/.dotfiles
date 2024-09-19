@@ -69,6 +69,11 @@ alias diff difft
 
 alias lg lazygit
 
+# Launch neovide in the background (normally for larger projects)
+function nv --description 'Run Neovide in the background'
+    neovide $argv &
+end
+
 # todo: remove this when the next major release comes out
 set -gx PATH $PATH "$HOME/opt/lazygit"
 
@@ -88,7 +93,7 @@ set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
 # $HOME/opt/bin/set_cargo_token.sh
 set -gx CARGO_REGISTRY_TOKEN (cat $HOME/opt/cargo_token.txt)
 
-set -gx SDKROOT (xcrun --sdk macosx14.5 --show-sdk-path)
+set -gx SDKROOT (xcrun --sdk macosx --show-sdk-path)
 
 set -gx CPATH /Users/tobydavis/opt/gmp-6.3.0/INSTALL/include $CPATH
 set -gx LIBRARY_PATH /Users/tobydavis/opt/gmp-6.3.0/INSTALL/lib $LIBRARY_PATH
