@@ -73,6 +73,7 @@
     qemu
 
     # Terminal tools
+    tldr
     texinfoInteractive
     git
     gnused
