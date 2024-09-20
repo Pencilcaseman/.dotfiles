@@ -2,7 +2,14 @@ live_config_reload = true
 
 import = [
     # "/Users/tobydavis/.config/alacritty/themes/themes/tokyo-night-storm.toml",
-    "/Users/tobydavis/.config/alacritty/themes/themes/ayu_dark.toml",
+    # "/Users/tobydavis/.config/alacritty/themes/themes/ayu_dark.toml",
+    "/Users/tobydavis/.config/alacritty/themes/themes/argonaut.toml",
+    # "/Users/tobydavis/.config/alacritty/themes/themes/one_dark.toml",
+
+    # "/Users/tobydavis/.config/alacritty/themes/themes/falcon.toml",
+    # "/Users/tobydavis/.config/alacritty/themes/themes/moonlight_ii_vscode.toml",
+    #
+    # "/Users/tobydavis/.config/alacritty/themes/themes/Cobalt2.toml",
 ]
 
 [bell]
@@ -49,8 +56,8 @@ draw_bold_text_with_bright_colors = false
 size = 13.0
 
 [font.bold]
-# family = "JetBrainsMono Nerd Font"
-family = "MonaSpiceNe Nerd Font"
+family = "JetBrainsMono Nerd Font"
+# family = "MonaSpiceNe Nerd Font"
 style = "Medium"
 
 [font.glyph_offset]

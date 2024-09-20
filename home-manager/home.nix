@@ -115,6 +115,7 @@
     neofetch
 
     # Editors
+    emacs
     neovim
     helix
     neovide
@@ -149,6 +150,7 @@
     (lowPrio llvmPackages_17.libcxx)
     #
     # llvmPackages_19.clang-tools
+    compdb
 
     # Haskell
     ghc

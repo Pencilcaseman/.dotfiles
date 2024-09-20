@@ -9,8 +9,11 @@ white = "0xFEFEF8"
 yellow = "0xFFD750"
 
 [colors.cursor]
-cursor = "0xFF261E"
-text = "0xEBEBEB"
+# cursor = "0xFF261E"
+# text = "0xEBEBEB"
+
+cursor = "0x93A4C3"
+# text = "0xEBEBEB"
 
 [colors.normal]
 black = "0x0d0d0d"
