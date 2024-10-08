@@ -56,8 +56,8 @@ draw_bold_text_with_bright_colors = false
 size = 13.0
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
-# family = "MonaSpiceNe Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "MonaSpiceNe Nerd Font"
 style = "Medium"
 
 [font.glyph_offset]
@@ -425,7 +425,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 # args = ["--login", "-c", "tmux a -t base || tmux new -s base"]
 
 program = "/Users/tobydavis/.nix-profile/bin/fish"
-args = ["-c tmux"]
+args = ["-c", "tmux a -t base || tmux new -s base"]
 
 # args = [
 #     "--login",

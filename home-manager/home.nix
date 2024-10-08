@@ -135,6 +135,10 @@
     #  - Typst
     typst
 
+    #  - Perl 
+    # perl
+    # perlPackages
+
     #  - C/C++
     cppcheck
     lld
