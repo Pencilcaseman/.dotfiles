@@ -1,4 +1,4 @@
-# ssh-add --apple-use-keychain ~/.ssh/id_epcc
+ # ssh-add --apple-use-keychain ~/.ssh/id_epcc
 
 set -gx SCCMOD_CONFIG "$HOME/.config/sccmod.toml"
 
@@ -13,8 +13,6 @@ set -gx PATH $PATH "$HOME/.nix-profile/lib"
 set -gx PATH /Users/tobydavis/.codon/bin $PATH
 
 set -gx PATH $PATH "$HOME/opt/bin"
-
-set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/opt/OpenBLAS/build/INSTALL/lib"
 
 set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/.nix-profile/lib"
 
@@ -42,12 +40,6 @@ set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/util
 # Flavours
 set -gx TCLLIBPATH /Users/tobydavis/opt/flavours/
 
-# MPI
-set -gx PATH /Users/tobydavis/opt/ompi/INSTALL/bin $PATH
-set -gx LIBRARY_PATH /Users/tobydavis/opt/ompi/INSTALL/lib $LIBRARY_PATH
-set -gx LD_LIBRARY_PATH /Users/tobydavis/opt/ompi/INSTALL/lib $LD_LIBRARY_PATH
-set -gx CPATH /Users/tobydavis/opt/ompi/INSTALL/include $CPATH
-
 # Cat (bat)
 set -gx PATH $PATH "$HOME/.local/bin"
 alias cat "bat --paging=always"
@@ -68,6 +60,12 @@ alias sg "gh copilot suggest"
 alias diff difft
 
 alias lg lazygit
+
+# Launch alacritty in the background without tmux integration. Useful for cases
+# where you want to ssh into a remote machine and run tmux there.
+function ant --description 'Run Alacritty in the background'
+    alacritty --working-directory=(pwd) --command $SHELL &
+end
 
 # Launch neovide in the background (normally for larger projects)
 function nv --description 'Run Neovide in the background'

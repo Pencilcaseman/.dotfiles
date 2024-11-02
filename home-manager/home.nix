@@ -150,11 +150,12 @@
     # NOTE: Currently replaced with custom installations
     #
     # (hiPrio gcc13)
-    (lowPrio llvmPackages_17.libllvm)
-    (lowPrio llvmPackages_17.libcxxClang)
-    (lowPrio llvmPackages_17.libcxx)
+    (lowPrio llvmPackages_18.libllvm)
+    (lowPrio llvmPackages_18.libcxxClang)
+    (lowPrio llvmPackages_18.libcxx)
+    (lowPrio llvmPackages_18.clang-tools)
     #
-    # llvmPackages_19.clang-tools
+    # llvmPackages_18.clang-tools
     compdb
 
     # Haskell
@@ -189,12 +190,13 @@
     julia_19-bin
 
     #  - JavaScript, Typescript, CSS, etc. 
-    nodejs_20
+    nodejs_22
     typescript
     eslint_d
     prettierd
     corepack_20
     bun
+    deno
 
     #  - Go 
     go
@@ -204,6 +206,7 @@
     czkawka
 
     # Libraries
+    wget
     libfabric
     m4
     protobuf

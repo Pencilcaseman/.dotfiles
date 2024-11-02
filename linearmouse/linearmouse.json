@@ -1,26 +1,26 @@
 {
   "schemes" : [
     {
-      "if" : {
-        "device" : {
-          "serialNumber" : "DD181B5195011EC8",
-          "productName" : "MX Master 3",
-          "productID" : "0xb023",
-          "vendorID" : "0x46d",
-          "category" : "mouse"
-        }
-      },
-      "scrolling" : {
-        "speed" : 0,
-        "reverse" : {
-          "vertical" : true
-        },
-        "acceleration" : 1,
-        "distance" : 3
-      },
       "pointer" : {
         "speed" : 0.3472,
         "acceleration" : 0
+      },
+      "if" : {
+        "device" : {
+          "vendorID" : "0x46d",
+          "productName" : "MX Master 3",
+          "productID" : "0xb023",
+          "category" : "mouse",
+          "serialNumber" : "DD181B5195011EC8"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        },
+        "distance" : 3,
+        "speed" : 0,
+        "acceleration" : 1
       }
     },
     {
@@ -29,71 +29,24 @@
         "speed" : 0.2488,
         "disableAcceleration" : false
       },
-      "if" : {
-        "device" : {
-          "productID" : "0xc542",
-          "productName" : "Wireless Receiver",
-          "vendorID" : "0x46d",
-          "category" : "mouse"
-        }
-      },
       "scrolling" : {
+        "distance" : {
+          "vertical" : "50px"
+        },
         "reverse" : {
           "vertical" : true
-        },
-        "acceleration" : {
-          "vertical" : 1
         },
         "speed" : {
           "vertical" : 0
         },
-        "distance" : {
-          "vertical" : "50px"
-        }
-      }
-    },
-    {
-      "pointer" : {
-        "speed" : 0.6603,
-        "acceleration" : 0
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0x3200",
-          "productName" : "Dell USB Mouse",
-          "vendorID" : "0x413c",
-          "category" : "mouse"
-        }
-      },
-      "scrolling" : {
-        "distance" : {
-          "vertical" : "36px",
-          "horizontal" : 3
-        },
-        "acceleration" : 1,
-        "speed" : 0,
-        "reverse" : true
-      }
-    },
-    {
-      "scrolling" : {
-        "speed" : {
-          "vertical" : 17.7
-        },
-        "reverse" : true,
         "acceleration" : {
-          "vertical" : 0.72,
-          "horizontal" : 1
+          "vertical" : 1
         }
-      },
-      "pointer" : {
-        "acceleration" : 0,
-        "speed" : 0.3226
       },
       "if" : {
         "device" : {
-          "productName" : "USB Receiver",
-          "productID" : "0xc52b",
+          "productID" : "0xc542",
+          "productName" : "Wireless Receiver",
           "category" : "mouse",
           "vendorID" : "0x46d"
         }
@@ -103,30 +56,77 @@
       "if" : {
         "device" : {
           "category" : "mouse",
-          "vendorID" : "0x1038",
-          "productID" : "0x1830",
-          "productName" : "SteelSeries Rival 3 Wireless"
+          "productID" : "0x3200",
+          "productName" : "Dell USB Mouse",
+          "vendorID" : "0x413c"
         }
       },
       "scrolling" : {
-        "speed" : {
-          "horizontal" : 24.83,
-          "vertical" : 11.81
+        "speed" : 0,
+        "distance" : {
+          "vertical" : "36px",
+          "horizontal" : 3
         },
+        "reverse" : true,
+        "acceleration" : 1
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.6603
+      }
+    },
+    {
+      "scrolling" : {
         "acceleration" : {
-          "vertical" : 0.41,
-          "horizontal" : 0
+          "vertical" : 0.72,
+          "horizontal" : 1
         },
+        "reverse" : true,
+        "speed" : {
+          "vertical" : 17.7
+        }
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0xc52b",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d",
+          "category" : "mouse"
+        }
+      },
+      "pointer" : {
+        "speed" : 0.3226,
+        "acceleration" : 0
+      }
+    },
+    {
+      "scrolling" : {
         "reverse" : {
           "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 11.81,
+          "horizontal" : 24.83
+        },
+        "acceleration" : {
+          "horizontal" : 0,
+          "vertical" : 0.41
         },
         "distance" : {
           "vertical" : "auto"
         }
       },
       "pointer" : {
-        "speed" : 0.5546,
-        "acceleration" : 0
+        "acceleration" : 0,
+        "speed" : 0.5546
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0x1830",
+          "vendorID" : "0x1038",
+          "productName" : "SteelSeries Rival 3 Wireless",
+          "category" : "mouse"
+        }
       }
     },
     {
@@ -136,10 +136,10 @@
       },
       "if" : {
         "device" : {
-          "productID" : "0x1830",
           "productName" : "Rival 3 Wireless",
+          "vendorID" : "0x111",
           "category" : "mouse",
-          "vendorID" : "0x111"
+          "productID" : "0x1830"
         }
       },
       "scrolling" : {
@@ -147,7 +147,29 @@
           "vertical" : 0.68
         }
       }
+    },
+    {
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 0.72
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.2016
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0x2510",
+          "category" : "mouse",
+          "productName" : "USB Optical Mouse",
+          "vendorID" : "0x93a"
+        }
+      }
     }
   ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5"
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
 }

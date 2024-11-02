@@ -4,3 +4,4 @@ build_root = "/Users/tobydavis/apps/module_build"
 install_root = "/Users/tobydavis/apps/modules"
 shell = "fish"
 class_no_conflict = ["util", "profiler"]
+num_threads = 12

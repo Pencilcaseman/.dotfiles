@@ -1,16 +1,3 @@
-live_config_reload = true
-
-import = [
-    # "/Users/tobydavis/.config/alacritty/themes/themes/tokyo-night-storm.toml",
-    # "/Users/tobydavis/.config/alacritty/themes/themes/ayu_dark.toml",
-    "/Users/tobydavis/.config/alacritty/themes/themes/argonaut.toml",
-    # "/Users/tobydavis/.config/alacritty/themes/themes/one_dark.toml",
-
-    # "/Users/tobydavis/.config/alacritty/themes/themes/falcon.toml",
-    # "/Users/tobydavis/.config/alacritty/themes/themes/moonlight_ii_vscode.toml",
-    #
-    # "/Users/tobydavis/.config/alacritty/themes/themes/Cobalt2.toml",
-]
 
 [bell]
 animation = "EaseOutExpo"
@@ -418,7 +405,7 @@ multiplier = 3
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
+[terminal.shell]
 # args = ["--command=zellij"]
 
 # program = "/Users/tobydavis/.nix-profile/bin/fish"
@@ -447,3 +434,20 @@ lines = 28
 [window.padding]
 x = 0
 y = 0
+
+[general]
+live_config_reload = true
+
+import = [
+    # "/Users/tobydavis/.config/alacritty/themes/themes/tokyo-night-storm.toml",
+    # "/Users/tobydavis/.config/alacritty/themes/themes/ayu_dark.toml",
+    "/Users/tobydavis/.config/alacritty/themes/themes/argonaut.toml",
+    # "/Users/tobydavis/.config/alacritty/themes/themes/one_dark.toml",
+
+    # "/Users/tobydavis/.config/alacritty/themes/themes/falcon.toml",
+    # "/Users/tobydavis/.config/alacritty/themes/themes/moonlight_ii_vscode.toml",
+    #
+    # "/Users/tobydavis/.config/alacritty/themes/themes/Cobalt2.toml",
+]
+
+[terminal]
