@@ -384,6 +384,7 @@ end
 
 # =====================================================================================================================
 
+source /opt/homebrew/Cellar/spack/0.22.2/share/spack/setup-env.fish
 starship init fish | source
 thefuck --alias | source
 zoxide init fish | source

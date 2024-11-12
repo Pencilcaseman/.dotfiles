@@ -179,6 +179,7 @@
     jdk21
 
     #  - LaTeX 
+    texliveFull
     tectonic
     pandoc
 
@@ -207,6 +208,12 @@
 
     # Libraries
     wget
+    exiftool
+    foremost # This thing is awesome
+    zsteg # Steganography
+    imagemagick
+    # zbar # Installed via brew
+    dirbuster
     libfabric
     m4
     protobuf
