@@ -37,6 +37,13 @@ set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/profiler
 set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/pmix
 set -gx MODULEPATH $MODULEPATH $HOME/apps/modulefiles/util
 
+# Core Audio? idfk
+set -gx COREAUDIO_SDK_PATH /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreAudio.framework
+
+# Spack testing
+set -gx LIBRARY_PATH $(spack location -i ncurses)/lib $LIBRARY_PATH
+set -gx LD_LIBRARY_PATH $(spack location -i ncurses)/lib $LD_LIBRARY_PATH
+
 # Flavours
 set -gx TCLLIBPATH /Users/tobydavis/opt/flavours/
 

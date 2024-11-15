@@ -119,7 +119,7 @@
     emacs
     neovim
     helix
-    neovide
+    # neovide
 
     tree-sitter
 
@@ -150,10 +150,10 @@
     # NOTE: Currently replaced with custom installations
     #
     # (hiPrio gcc13)
-    (lowPrio llvmPackages_18.libllvm)
-    (lowPrio llvmPackages_18.libcxxClang)
-    (lowPrio llvmPackages_18.libcxx)
-    (lowPrio llvmPackages_18.clang-tools)
+    # (lowPrio llvmPackages_18.libllvm)
+    # (lowPrio llvmPackages_18.libcxxClang)
+    # (lowPrio llvmPackages_18.libcxx)
+    # (lowPrio llvmPackages_18.clang-tools)
     #
     # llvmPackages_18.clang-tools
     compdb
@@ -203,7 +203,7 @@
     go
 
     # Apps
-    sniffnet
+    # sniffnet
     czkawka
 
     # Libraries
