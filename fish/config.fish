@@ -60,6 +60,10 @@ function nv --description 'Run Neovide in the background'
     neovide $argv &
 end
 
+function nvm --description 'Launch a minimal Neovim configuration'
+    NVIM_MINIMAL=True nvim $argv
+end
+
 # Make a directory and cd into it
 function mkcd --description 'Make a directory and cd into it'
     mkdir -p $argv
