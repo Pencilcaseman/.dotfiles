@@ -89,12 +89,11 @@
     glow
     # git
     gh
-    # lazygit # Using master -- can use this after next release
+    lazygit # Using master -- can use this after next release
     jellyfin-ffmpeg
     fzf
     fd
     copilot-cli
-    thefuck
     tree
     speedtest-cli
     jq
@@ -119,7 +118,7 @@
     emacs
     neovim
     helix
-    # neovide
+    neovide
 
     tree-sitter
 
@@ -156,7 +155,7 @@
     # (lowPrio llvmPackages_18.clang-tools)
     #
     # llvmPackages_18.clang-tools
-    compdb
+    # compdb
 
     # Haskell
     ghc
@@ -207,6 +206,7 @@
     czkawka
 
     # Libraries
+    rustscan
     wget
     exiftool
     foremost # This thing is awesome
