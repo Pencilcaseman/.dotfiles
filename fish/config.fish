@@ -1,13 +1,11 @@
- # ssh-add --apple-use-keychain ~/.ssh/id_epcc
-
-set -gx SCCMOD_CONFIG "$HOME/.config/sccmod.toml"
-
 # Spack stuff
 source $HOME/opt/spack/share/spack/setup-env.fish
 
 # Lmod stuff??
 set -gx LMOD_COLORIZE YES
-source $(spack location -i lmod)/lmod/lmod/init/fish
+ # source $(spack location -i lmod)/lmod/lmod/init/fish
+set -gx LMOD_ROOT /Users/tobydavis/opt/spack/opt/spack/darwin-sequoia-m2/apple-clang-16.0.0/lmod-8.7.37-wq3tl2tvt5v5qsgmuv5ruiv2cuagw5ca
+source $LMOD_ROOT/lmod/lmod/init/fish
 
 # X11 binaries
 set -gx PATH /usr/X11/bin $PATH
@@ -38,7 +36,8 @@ end
 
 set -gx RUSTFLAGS "-C target-cpu=native -C link-arg=-fuse-ld=lld"
 
-set -gx LLVM_PATH $(spack location -i llvm)
+ # set -gx LLVM_PATH $(spack location -i llvm)
+set -gx LLVM_PATH /Users/tobydavis/opt/spack/opt/spack/darwin-sequoia-m2/apple-clang-16.0.0/llvm-19.1.4-cb34vqt5kaz4tdcn54b4fmx32n7457cu
 
 alias ls lsd
 alias lls "lsd -l"
@@ -73,15 +72,6 @@ end
 function nproc --description 'Print the number of processors'
     sysctl -n hw.physicalcpu
 end
-
-# todo: remove this when the next major release comes out
-set -gx PATH $PATH "$HOME/opt/lazygit"
-
-# Set CC and CXX to clang
-set -gx CC gcc # clang
-set -gx cc gcc
-set -gx CXX g++ # clang++
-set -gx cxx g++
 
 # Make lazygit look in .config/lazygit
 set -gx XDG_CONFIG_HOME "$HOME/.config"

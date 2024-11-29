@@ -206,6 +206,7 @@
     czkawka
 
     # Libraries
+    mpv # CLI video player
     rustscan
     wget
     exiftool
