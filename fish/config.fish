@@ -8,18 +8,18 @@ set -gx LMOD_ROOT /Users/tobydavis/opt/spack/opt/spack/darwin-sequoia-m2/apple-c
 source $LMOD_ROOT/lmod/lmod/init/fish
 
 # X11 binaries
-set -gx PATH /usr/X11/bin $PATH
+contains /usr/X11/bin $PATH || set -gx PATH /usr/X11/bin $PATH
 
-set -gx PATH /usr/local/bin $PATH
-set -gx PATH $PATH /Library/TeX/texbin
-set -gx MODULAR_HOME "$HOME/.modular"
-set -gx PATH $PATH "$HOME/.modular/pkg/packages.modular.com_mojo/bin"
-set -gx PATH $PATH "$HOME/.nix-profile/lib"
-set -gx PATH /Users/tobydavis/.codon/bin $PATH
+contains /usr/local/bin $PATH || set -gx PATH /usr/local/bin $PATH
+contains /Library/TeX/texbin $PATH || set -gx PATH $PATH /Library/TeX/texbin
+contains $HOME/.modular $PATH || set -gx PATH $PATH $HOME/.modular
+contains $HOME/.modular/pkg/packages.modular.com_mojo/bin $PATH || set -gx PATH $PATH $HOME/.modular/pkg/packages.modular.com_mojo/bin
+contains $HOME/.nix-profile/lib $PATH || set -gx PATH $PATH $HOME/.nix-profile/lib
+contains $HOME/.codon/bin $PATH || set -gx PATH $PATH $HOME/.codon/bin
 
-set -gx PATH $PATH "$HOME/opt/bin"
+contains $HOME/opt/bin $PATH || set -gx PATH $PATH $HOME/opt/bin
 
-set -gx LIBRARY_PATH $LIBRARY_PATH "$HOME/.nix-profile/lib"
+contains $HOME/.nix-profile/lib $LIBRARY_PATH || set -gx LIBRARY_PATH $LIBRARY_PATH $HOME/.nix-profile/lib
 
 # Core Audio? idfk
 set -gx COREAUDIO_SDK_PATH /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreAudio.framework
@@ -30,9 +30,9 @@ alias cat "bat --paging=always"
 alias catp "bat --paging=never"
 alias ccat /bin/cat
 
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+# if status is-interactive
+#     # Commands to run in interactive sessions can go here
+# end
 
 set -gx RUSTFLAGS "-C target-cpu=native -C link-arg=-fuse-ld=lld"
 
@@ -73,14 +73,13 @@ function nproc --description 'Print the number of processors'
     sysctl -n hw.physicalcpu
 end
 
-# Make lazygit look in .config/lazygit
+# Ensure programs use the .config directory for config files
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
-# Do this last to ensure the correct python install is used 
+# Do this last to ensure the correct python install is used
 set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
 
 # Set CARGO_REGISTRY_TOKEN
-# $HOME/opt/bin/set_cargo_token.sh
 set -gx CARGO_REGISTRY_TOKEN (cat $HOME/opt/cargo_token.txt)
 
 set -gx SDKROOT (xcrun --sdk macosx --show-sdk-path)

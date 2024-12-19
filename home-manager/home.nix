@@ -44,7 +44,13 @@
     nix-output-monitor
     nh
 
-    nerdfonts
+    # nerdfonts
+    # (pkgs.nerdfonts.override {
+    #   fonts = [ "JetBrainsMono" ];
+    # })
+
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.monaspace
 
     # Terminals, shells and multiplexers
     fish
@@ -80,6 +86,7 @@
     bottom
     gitoxide
     ripgrep
+    ripgrep-all
     gping
     bat
     btop
@@ -126,6 +133,9 @@
     #  - Rust 
     rustup
     bacon
+
+    #  - Zig
+    zig
 
     #  - Python 
     # python313
@@ -223,6 +233,14 @@
     zlib
     # mpi
     darwin.Security
+
+    # WARNING: REMOVE POST-COMPETITION
+    # CIUK
+    kafkactl
+    k3d
+    prometheus
+    grafana
+    kubectl
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
