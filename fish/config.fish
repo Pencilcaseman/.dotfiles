@@ -1,12 +1,6 @@
 # Spack stuff
 source $HOME/opt/spack/share/spack/setup-env.fish
 
-# Lmod stuff??
-set -gx LMOD_COLORIZE YES
- # source $(spack location -i lmod)/lmod/lmod/init/fish
-set -gx LMOD_ROOT /Users/tobydavis/opt/spack/opt/spack/darwin-sequoia-m2/apple-clang-16.0.0/lmod-8.7.37-wq3tl2tvt5v5qsgmuv5ruiv2cuagw5ca
-source $LMOD_ROOT/lmod/lmod/init/fish
-
 # X11 binaries
 contains /usr/X11/bin $PATH || set -gx PATH /usr/X11/bin $PATH
 
@@ -34,10 +28,12 @@ alias ccat /bin/cat
 #     # Commands to run in interactive sessions can go here
 # end
 
-set -gx RUSTFLAGS "-C target-cpu=native -C link-arg=-fuse-ld=lld"
-
- # set -gx LLVM_PATH $(spack location -i llvm)
-set -gx LLVM_PATH /Users/tobydavis/opt/spack/opt/spack/darwin-sequoia-m2/apple-clang-16.0.0/llvm-19.1.4-cb34vqt5kaz4tdcn54b4fmx32n7457cu
+# Apple, please ship a proper LLVM installation by default. Pretty please.
+set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/unwind -lunwind" $LDFLAGS
+set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind" $LDFLAGS
+fish_add_path /opt/homebrew/opt/llvm/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib" $LDFLAGS
+set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include" $CPPFLAGS
 
 alias ls lsd
 alias lls "lsd -l"
