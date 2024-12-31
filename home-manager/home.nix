@@ -152,6 +152,7 @@
     cppcheck
     lld
     lldb
+    bear
     # libgccjit
  
     # WARNING: The following may cause issues when compiling with 
