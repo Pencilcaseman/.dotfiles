@@ -57,7 +57,7 @@ set -gx BINDGEN_EXTRA_CLANG_ARGS "-I/opt/homebrew/opt/llvm/include"
 # alias ls lsd
 # alias lls "lsd -l"
 alias ls "eza --icons"
-alias lls "eza --icons -l"
+alias lls "eza --icons --smart-group --git --long --binary"
 alias btmb "btm --basic"
 alias sg "gh copilot suggest"
 alias fs "yazi"

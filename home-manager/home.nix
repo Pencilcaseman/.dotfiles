@@ -49,8 +49,8 @@
     #   fonts = [ "JetBrainsMono" ];
     # })
 
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.monaspace
+    # nerd-fonts.jetbrains-mono
+    # nerd-fonts.monaspace
 
     # Terminals, shells and multiplexers
     fish
@@ -221,8 +221,8 @@
     # Libraries
     mpv # CLI video player
     yazi # CLI file explorer
-    television # CLI fuzzy finder
-    eza # An alternative to the unix `ls` command
+    # television # CLI fuzzy finder
+    # eza # An alternative to the unix `ls` command
     rustscan
     wget
     exiftool
