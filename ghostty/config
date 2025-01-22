@@ -1,0 +1,18 @@
+font-family = MonaspiceNe Nerd Font Mono
+font-size = 11
+theme = Monokai Soda
+
+mouse-hide-while-typing = true
+
+command = "/Users/tobydavis/.nix-profile/bin/fish -c 'tmux a -t base || tmux new -s base'"
+# command = "/Users/tobydavis/.nix-profile/bin/fish"
+
+# keybind = ctrl+a>n=new_window
+
+quit-after-last-window-closed = true
+quit-after-last-window-closed-delay = "0s"
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right

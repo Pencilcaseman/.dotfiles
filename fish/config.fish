@@ -1,5 +1,12 @@
-# Spack stuff
-source $HOME/opt/spack/share/spack/setup-env.fish
+# Spack is really slow to load, so we only source it when we need it
+function spack
+    source $HOME/opt/spack/share/spack/setup-env.fish
+    command spack $argv
+end
+
+function yazi
+    DISPLAY="" $YAZI_PATH $argv
+end
 
 # X11 binaries
 contains /usr/X11/bin $PATH || set -gx PATH /usr/X11/bin $PATH
@@ -16,7 +23,8 @@ contains $HOME/opt/bin $PATH || set -gx PATH $PATH $HOME/opt/bin
 contains $HOME/.nix-profile/lib $LIBRARY_PATH || set -gx LIBRARY_PATH $LIBRARY_PATH $HOME/.nix-profile/lib
 
 # Core Audio? idfk
-set -gx COREAUDIO_SDK_PATH /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreAudio.framework
+# set -gx COREAUDIO_SDK_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreAudio.framework
+# set -gx AUDIOUNIT_SDK_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework
 
 # Cat (bat)
 set -gx PATH $PATH "$HOME/.local/bin"
@@ -33,12 +41,26 @@ set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/unwind -lunwind" $LDFLAGS
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind" $LDFLAGS
 fish_add_path /opt/homebrew/opt/llvm/bin
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib" $LDFLAGS
-set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include" $CPPFLAGS
+set -gx CFLAGS "-I/opt/homebrew/opt/llvm/include" $CFLAGS
+set -gx CXXFLAGS "-I/opt/homebrew/opt/llvm/include" $CXXFLAGS
 
-alias ls lsd
-alias lls "lsd -l"
+# set -gx CC /usr/bin/clang
+# set -gx CXX /usr/bin/clang++
+
+set -gx LIBCLANG_PATH (brew --prefix llvm)/lib
+set -gx PATH (brew --prefix llvm)/bin $PATH
+set -gx CC (brew --prefix llvm)/bin/clang
+set -gx CXX (brew --prefix llvm)/bin/clang++
+
+set -gx BINDGEN_EXTRA_CLANG_ARGS "-I/opt/homebrew/opt/llvm/include"
+
+# alias ls lsd
+# alias lls "lsd -l"
+alias ls "eza --icons"
+alias lls "eza --icons -l"
 alias btmb "btm --basic"
 alias sg "gh copilot suggest"
+alias fs "yazi"
 
 alias diff difft
 
@@ -79,6 +101,8 @@ set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
 set -gx CARGO_REGISTRY_TOKEN (cat $HOME/opt/cargo_token.txt)
 
 set -gx SDKROOT (xcrun --sdk macosx --show-sdk-path)
+
+set -gx YAZI_PATH (which yazi)
 
 # --------------------------------------------------------------------------------------------
 

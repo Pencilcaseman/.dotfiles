@@ -1,0 +1,8 @@
+[manager]
+ratio = [2, 2, 3]
+linemode = "size"
+
+[opener]
+edit = [
+	{ run = 'NVIM_MINIMAL=True /Users/tobydavis/.nix-profile/bin/nvim "$@"', block = true, for = "unix" },
+]

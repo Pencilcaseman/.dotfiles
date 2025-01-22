@@ -139,7 +139,7 @@
 
     #  - Python 
     # python313
-    pypy310
+    # pypy310
 
     #  - Typst
     typst
@@ -150,7 +150,9 @@
 
     #  - C/C++
     cppcheck
+    cpplint
     lld
+    mold
     lldb
     bear
     # libgccjit
@@ -218,6 +220,9 @@
 
     # Libraries
     mpv # CLI video player
+    yazi # CLI file explorer
+    television # CLI fuzzy finder
+    eza # An alternative to the unix `ls` command
     rustscan
     wget
     exiftool
