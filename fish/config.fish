@@ -32,9 +32,9 @@ alias cat "bat --paging=always"
 alias catp "bat --paging=never"
 alias ccat /bin/cat
 
-# if status is-interactive
-#     # Commands to run in interactive sessions can go here
-# end
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
 
 # Apple, please ship a proper LLVM installation by default. Pretty please.
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/unwind -lunwind" $LDFLAGS
@@ -112,3 +112,4 @@ starship init fish | source
 # zoxide init fish --cmd cd | source
 zoxide init fish | source
 nh completions --shell fish | source
+tv init fish | source

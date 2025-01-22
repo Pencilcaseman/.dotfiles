@@ -49,22 +49,22 @@
     #   fonts = [ "JetBrainsMono" ];
     # })
 
-    # nerd-fonts.jetbrains-mono
-    # nerd-fonts.monaspace
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.monaspace
 
     # Terminals, shells and multiplexers
     fish
     starship
-    zellij
+    # zellij
     tmux
-    alacritty
-    lsd
-    alacritty
+    # alacritty
+    # lsd
+    # alacritty
     starship
     # lapce
 
     # Czkawka (doesn't work)
-    glib
+    # glib
     # gtk4
     # librsvg 
     # libheif 
@@ -94,9 +94,8 @@
     difftastic
     cloc
     glow
-    # git
     gh
-    lazygit # Using master -- can use this after next release
+    lazygit
     jellyfin-ffmpeg
     fzf
     fd
@@ -116,15 +115,15 @@
     automake
 
     # Terminal things (kinda useless but fun)
-    cmatrix
-    cowsay
-    lolcat
-    neofetch
+    # cmatrix
+    # cowsay
+    # lolcat
+    # neofetch
 
     # Editors
-    emacs
+    # emacs
     neovim
-    helix
+    # helix
     neovide
 
     tree-sitter
@@ -152,7 +151,7 @@
     cppcheck
     cpplint
     lld
-    mold
+    # mold
     lldb
     bear
     # libgccjit
@@ -191,11 +190,11 @@
     jdk21
 
     #  - LaTeX 
-    texliveFull
+    # texliveFull
     tectonic
     pandoc
 
-    #  - Lua 
+    #  - Lua
     (hiPrio lua)
     (lowPrio luajit)
 
@@ -221,8 +220,8 @@
     # Libraries
     mpv # CLI video player
     yazi # CLI file explorer
-    # television # CLI fuzzy finder
-    # eza # An alternative to the unix `ls` command
+    television # CLI fuzzy finder
+    eza # An alternative to the unix `ls` command
     rustscan
     wget
     exiftool
@@ -239,14 +238,6 @@
     zlib
     # mpi
     darwin.Security
-
-    # WARNING: REMOVE POST-COMPETITION
-    # CIUK
-    kafkactl
-    k3d
-    prometheus
-    grafana
-    kubectl
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
