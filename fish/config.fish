@@ -104,6 +104,29 @@ set -gx SDKROOT (xcrun --sdk macosx --show-sdk-path)
 
 set -gx YAZI_PATH (which yazi)
 
+# ----------------
+
+set -gx FZF_DEFAULT_OPTS \
+    "--style full \
+--border --padding 1,2 \
+--border-label ' Demo ' --input-label ' Input ' --header-label ' File Type ' \
+--preview 'catp --color always {}' \
+--bind 'result:transform-list-label:
+if [[ -z \$FZF_QUERY ]]; then
+    echo \" \$FZF_MATCH_COUNT items \"
+else
+    echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"
+fi
+' \
+--bind 'focus:transform-preview-label:[[ -n {} ]] && printf \" Previewing [%s] \" {}' \
+--bind 'focus:+transform-header:file --brief {} || echo \"No file selected\"' \
+--bind 'ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)' \
+--color 'border:#aaaaaa,label:#cccccc' \
+--color 'preview-border:#9999cc,preview-label:#ccccff' \
+--color 'list-border:#669966,list-label:#99cc99' \
+--color 'input-border:#996666,input-label:#ffcccc' \
+--color 'header-border:#6699cc,header-label:#99ccff'"
+
 # --------------------------------------------------------------------------------------------
 
 set fish_greeting "" # disable fish greeting
@@ -112,4 +135,39 @@ starship init fish | source
 # zoxide init fish --cmd cd | source
 zoxide init fish | source
 nh completions --shell fish | source
-tv init fish | source
+
+# bind --erase \ct
+# bind --erase \cr
+# bind --erase -M insert \ct
+# bind --erase -M insert \cr
+# tv init fish | source
+
+# function tv_smart_autocomplete
+#     set -l current_prompt (commandline -cp)
+#
+#     set -l output (tv --autocomplete-prompt "$current_prompt")
+#
+#     if test -n "$output"
+#         # add a space if the prompt does not end with one (unless the prompt is an implicit cd, e.g. '\.')
+#         string match -r '.*( |./)$' -- "$current_prompt" || set current_prompt "$current_prompt "
+#         commandline -r "$current_prompt$output"
+#     end
+# end
+#
+# function tv_shell_history
+#     set -l current_prompt (commandline -cp)
+#
+#     set -l output (tv fish-history --input "$current_prompt")
+#
+#     if test -n "$output"
+#         commandline -r "$output"
+#     end
+# end
+#
+# bind \cT tv_smart_autocomplete
+# bind \cR tv_shell_history
+# bind -M insert \cT tv_smart_autocomplete
+# bind -M insert \cR tv_shell_history
+
+# Use VIM keybindings
+fish_vi_key_bindings

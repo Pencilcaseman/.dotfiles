@@ -142,6 +142,7 @@
 
     #  - Typst
     typst
+    typstyle
 
     #  - Perl 
     # perl
