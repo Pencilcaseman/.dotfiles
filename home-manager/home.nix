@@ -115,10 +115,20 @@
     automake
 
     # Terminal things (kinda useless but fun)
-    # cmatrix
-    # cowsay
-    # lolcat
-    # neofetch
+    cmatrix # Random ascii art
+    cowsay # Cow says hello
+    lolcat # Rainbowzzz.
+    neofetch # System information
+    sl # ls? No? Oops.
+    toilet # ASCII text and art
+    boxes # Draw boxes around things.
+    # aewan # ASCII art editor
+    asciiquarium # Aquarium??
+    cbonsai # Bonsai tree :D
+    # oneko # Lil cat follows cursor
+    nyancat # Nyan cat
+    libcaca # ASCII stuff
+    figlet # ASCII text art
 
     # Editors
     # emacs
@@ -223,6 +233,7 @@
     yazi # CLI file explorer
     television # CLI fuzzy finder
     eza # An alternative to the unix `ls` command
+    navi # CLI cheatsheet
     rustscan
     wget
     exiftool
