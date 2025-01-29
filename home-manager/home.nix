@@ -142,6 +142,7 @@
     #  - Rust 
     rustup
     bacon
+    # loco-cli
 
     #  - Zig
     zig

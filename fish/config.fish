@@ -54,6 +54,9 @@ set -gx CXX (brew --prefix llvm)/bin/clang++
 
 set -gx BINDGEN_EXTRA_CLANG_ARGS "-I/opt/homebrew/opt/llvm/include"
 
+# Vulkan SDK
+set -gx VULKAN_SDK (realpath ~/VulkanSDK/1.4.304.0/macOS/)
+
 alias ls "eza --icons"
 alias lls "eza --icons --smart-group --git --long --binary"
 alias tls "eza --icons --tree"
@@ -100,6 +103,8 @@ set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
 
 # Set CARGO_REGISTRY_TOKEN
 set -gx CARGO_REGISTRY_TOKEN (cat $HOME/opt/cargo_token.txt)
+
+set -gx MACOSX_DEPLOYMENT_TARGET $(sw_vers -productVersion | cut -d '.' -f1,2)
 
 set -gx SDKROOT (xcrun --sdk macosx --show-sdk-path)
 
