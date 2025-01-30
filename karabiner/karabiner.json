@@ -5,6 +5,27 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Map Caps-Lock to Escape",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "mandatory": ["any"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Tmux -- CMD+: to CTRL+b",
                         "manipulators": [
                             {
@@ -27,6 +48,7 @@
                     },
                     {
                         "description": "Vim -- Caps Lock to Shift+Tab",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
