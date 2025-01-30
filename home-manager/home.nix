@@ -183,6 +183,7 @@
 
     # Haskell
     ghc
+    haskell-language-server
 
     # cmake
     # gnumake
