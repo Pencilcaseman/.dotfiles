@@ -9,6 +9,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # TODO: Remove these when I no longer have to program in C#
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-sdk-6.0.428"
+    "dotnet-runtime-6.0.36"
+  ];
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -79,6 +85,7 @@
     qemu
 
     # Terminal tools
+    hunspell # Spellchecker
     tldr
     texinfoInteractive
     git
@@ -181,6 +188,11 @@
     # llvmPackages_18.clang-tools
     # compdb
 
+    #  - C#
+    (hiPrio dotnet-sdk_9)
+    (lowPrio msbuild)
+    # (lowPrio mono) # Installed via brew (breaks with msbuild)
+
     # Haskell
     ghc
     haskell-language-server
@@ -203,7 +215,7 @@
     jdk21
 
     #  - LaTeX 
-    # texliveFull
+    texliveFull
     tectonic
     pandoc
 

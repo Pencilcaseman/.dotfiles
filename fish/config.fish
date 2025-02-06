@@ -32,6 +32,63 @@ alias cat "bat --paging=always"
 alias catp "bat --paging=never"
 alias ccat /bin/cat
 
+# Hunspell
+set -gx DICT_ROOT $HOME/opt/dict
+
+function setspellchecklang --description 'Set the spellchecker language'
+    # Parse arguments
+    set -l silent 0
+    set -l lang ""
+
+    for arg in $argv
+        if test "$arg" = "--silent"
+            set silent 1
+        else
+            set lang $arg
+        end
+    end
+
+    # Ensure a language argument was provided
+    if test -z "$lang"
+        if test $silent -eq 0
+            echo "❌ No language specified."
+        end
+        return 1
+    end
+
+    set tmp_path $DICT_ROOT/$lang
+
+    if test -d $tmp_path
+        set -gx DICPATH $tmp_path
+        if test $silent -eq 0
+            echo "✅ Spellchecker language set to '$lang'"
+        end
+    else
+        if test $silent -eq 0
+            echo "❌ Language '$lang' does not exist."
+        end
+
+        # Get a list of available dictionaries
+        set available_dirs (ls -d $DICT_ROOT/* 2>/dev/null | xargs -n1 basename)
+
+        # Perform a fuzzy search (case-insensitive)
+        set matches (string match -i -- "*$lang*" $available_dirs)
+
+        if test (count $matches) -gt 0
+            if test $silent -eq 0
+                echo "📌 Did you mean one of these?"
+                for match in $matches
+                    echo "   - $match"
+                end
+            end
+        else if test $silent -eq 0
+            echo "No similar dictionaries found."
+        end
+    end
+end
+
+setspellchecklang en --silent
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -151,6 +208,7 @@ starship init fish | source
 zoxide init fish | source
 nh completions --shell fish | source
 navi widget fish | source
+direnv hook fish | source
 
 # tv init fish | source
 
