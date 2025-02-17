@@ -89,6 +89,18 @@ end
 
 setspellchecklang en --silent
 
+# Mullvad commands
+function mullvadforcedisconnect --description 'Disable Lockdown Mode and disconnect the VPN'
+    mullvad lockdown-mode set off
+    mullvad disconnect
+end
+
+function mullvadforceconnect --description 'Enable lockdown mode and connect the VPN'
+    mullvad lockdown-mode set on
+    mullvad connect
+end
+
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end

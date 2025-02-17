@@ -83,8 +83,10 @@
     # VMs
     # ovftool
     qemu
+    utm
 
     # Terminal tools
+    # bore # Tunnel local ports to a remote server
     hunspell # Spellchecker
     tldr
     texinfoInteractive
