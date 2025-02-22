@@ -1,20 +1,17 @@
+[user]
+	email = pencilcaseman@gmail.com
+	name = Toby Davis
 [diff]
-    tool = difftastic
+	external = difft
 
-[difftool]
-    prompt = false
-
-[difftool "difftastic"]
-    cmd = difft "$LOCAL" "$REMOTE"
-
-[pager]
-    difftool = true
-
-[alias]
-    dft = difftool
-
-[alias]
-    dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
-
-[diff]
-    external = difft
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[http]
+	postBuffer = 524288000
+[rerere]
+	enabled = true
+[pull]
+	rebase = false

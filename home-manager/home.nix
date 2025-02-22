@@ -63,9 +63,8 @@
     starship
     # zellij
     tmux
-    # alacritty
+    alacritty
     # lsd
-    # alacritty
     starship
     # lapce
 
@@ -89,6 +88,7 @@
     # bore # Tunnel local ports to a remote server
     hunspell # Spellchecker
     tldr
+    hexyl # Command line hex viewer
     texinfoInteractive
     git
     gnused
