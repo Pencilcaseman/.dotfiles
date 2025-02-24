@@ -1,0 +1,2 @@
+brew uninstall librewolf
+brew install --cask librewolf --no-quarantine --force
