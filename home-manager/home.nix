@@ -141,7 +141,7 @@
 
     # Editors
     # emacs
-    neovim
+    # neovim # Installed using Bob
     # helix
     neovide
 

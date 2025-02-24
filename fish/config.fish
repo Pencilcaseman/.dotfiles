@@ -19,6 +19,7 @@ contains $HOME/.nix-profile/lib $PATH || set -gx PATH $PATH $HOME/.nix-profile/l
 contains $HOME/.codon/bin $PATH || set -gx PATH $PATH $HOME/.codon/bin
 
 contains $HOME/opt/bin $PATH || set -gx PATH $PATH $HOME/opt/bin
+contains $HOME/.local/share/bob/nvim-bin $PATH || set -gx PATH $PATH $HOME/.local/share/bob/nvim-bin
 
 contains $HOME/.nix-profile/lib $LIBRARY_PATH || set -gx LIBRARY_PATH $LIBRARY_PATH $HOME/.nix-profile/lib
 
