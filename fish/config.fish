@@ -1,7 +1,20 @@
 # Spack is really slow to load, so we only source it when we need it
 function spack
-    source $HOME/opt/spack/share/spack/setup-env.fish
+    if test -z $SPACK_COMMAND_INITIALIZED
+        source $HOME/spack/share/spack/setup-env.fish
+        set SPACK_COMMAND_INITIALIZED 1
+    end
     command spack $argv
+end
+
+# Lmod is also incredibly slow, so we do the same thing here
+function module
+    if test -z $LMOD_COMMAND_INITIALIZED
+        source $(spack location -i lmod)/lmod/lmod/init/fish
+        source $HOME/spack/share/spack/setup-env.fish
+        set LMOD_COMMAND_INITIALIZED 1
+    end
+    module $argv
 end
 
 function yazi
@@ -19,6 +32,7 @@ contains $HOME/.nix-profile/lib $PATH || set -gx PATH $PATH $HOME/.nix-profile/l
 contains $HOME/.codon/bin $PATH || set -gx PATH $PATH $HOME/.codon/bin
 
 contains $HOME/opt/bin $PATH || set -gx PATH $PATH $HOME/opt/bin
+contains $HOME/.config/bin$PATH || set -gx PATH $PATH $HOME/.config/bin
 contains $HOME/.local/share/bob/nvim-bin $PATH || set -gx PATH $PATH $HOME/.local/share/bob/nvim-bin
 
 contains $HOME/.nix-profile/lib $LIBRARY_PATH || set -gx LIBRARY_PATH $LIBRARY_PATH $HOME/.nix-profile/lib
@@ -35,6 +49,10 @@ alias ccat /bin/cat
 
 # Hunspell
 set -gx DICT_ROOT $HOME/opt/dict
+
+# Set Neovim as editor
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 
 function setspellchecklang --description 'Set the spellchecker language'
     # Parse arguments
@@ -121,6 +139,7 @@ set -gx LIBCLANG_PATH (brew --prefix llvm)/lib
 set -gx PATH (brew --prefix llvm)/bin $PATH
 set -gx CC (brew --prefix llvm)/bin/clang
 set -gx CXX (brew --prefix llvm)/bin/clang++
+set -gx FC (brew --prefix flang)/bin/flang-new
 
 set -gx BINDGEN_EXTRA_CLANG_ARGS "-I/opt/homebrew/opt/llvm/include"
 

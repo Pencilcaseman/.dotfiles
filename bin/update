@@ -15,15 +15,15 @@ pip3 install --upgrade pip
 # From https://stackoverflow.com/questions/2720014/how-to-upgrade-all-python-packages-with-pip
 # pip3 --disable-pip-version-check list --outdated --format=json | python3 -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" | xargs -n1 pip3 install -U
 
-# gh extension install github/gh-copilot --force
-
 brew update
 brew upgrade --greedy
 brew upgrade --cask --greedy
 brew cleanup
 
-# Ensure that the native messaging host is updated in Librewolf
-cp -r ~/Library/Application\ Support/Mozilla/NativeMessagingHosts/ ~/Library/Application\ Support/librewolf/NativeMessagingHosts/
+# Ensure that the native messaging host is updated in LibreWolf
+MOZ_ROOT="$HOME/Library/Application Support/Mozilla/NativeMessagingHosts"
+LIB_ROOT="$HOME/Library/Application Support/LibreWolf/NativeMessagingHosts"
+[ ! -e "$LIB_ROOT" ] && ln -s "$MOZ_ROOT" "$LIB_ROOT"
 
 cargo install-update -a
 bob update

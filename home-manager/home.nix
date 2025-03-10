@@ -90,6 +90,9 @@
     tldr
     hexyl # Command line hex viewer
     texinfoInteractive
+    hashcat
+    john # Brew installed
+    # wireshark # Installed as MacOS package
     git
     gnused
     bottom
