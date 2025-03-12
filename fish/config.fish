@@ -37,10 +37,6 @@ contains $HOME/.local/share/bob/nvim-bin $PATH || set -gx PATH $PATH $HOME/.loca
 
 contains $HOME/.nix-profile/lib $LIBRARY_PATH || set -gx LIBRARY_PATH $LIBRARY_PATH $HOME/.nix-profile/lib
 
-# Core Audio? idfk
-# set -gx COREAUDIO_SDK_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreAudio.framework
-# set -gx AUDIOUNIT_SDK_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework
-
 # Cat (bat)
 set -gx PATH $PATH "$HOME/.local/bin"
 alias cat "bat --paging=always"
@@ -132,9 +128,6 @@ set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib" $LDFLAGS
 set -gx CFLAGS "-I/opt/homebrew/opt/llvm/include" $CFLAGS
 set -gx CXXFLAGS "-I/opt/homebrew/opt/llvm/include" $CXXFLAGS
 
-# set -gx CC /usr/bin/clang
-# set -gx CXX /usr/bin/clang++
-
 set -gx LIBCLANG_PATH (brew --prefix llvm)/lib
 set -gx PATH (brew --prefix llvm)/bin $PATH
 set -gx CC (brew --prefix llvm)/bin/clang
@@ -199,29 +192,6 @@ set -gx SDKROOT (xcrun --sdk macosx --show-sdk-path)
 
 set -gx YAZI_PATH (which yazi)
 
-# ----------------
-
-# set -gx FZF_DEFAULT_OPTS \
-#     "--style full \
-# --border --padding 1,2 \
-# --border-label ' Demo ' --input-label ' Input ' --header-label ' File Type ' \
-# --preview 'catp --color always {}' \
-# --bind 'result:transform-list-label:
-# if [[ -z \$FZF_QUERY ]]; then
-#     echo \" \$FZF_MATCH_COUNT items \"
-# else
-#     echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"
-# fi
-# ' \
-# --bind 'focus:transform-preview-label:[[ -n {} ]] && printf \" Previewing [%s] \" {}' \
-# --bind 'focus:+transform-header:file --brief {} || echo \"No file selected\"' \
-# --bind 'ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)' \
-# --color 'border:#aaaaaa,label:#cccccc' \
-# --color 'preview-border:#9999cc,preview-label:#ccccff' \
-# --color 'list-border:#669966,list-label:#99cc99' \
-# --color 'input-border:#996666,input-label:#ffcccc' \
-# --color 'header-border:#6699cc,header-label:#99ccff'"
-
 set -gx FZF_DEFAULT_OPTS \
     "--style full \
 --border --padding 1,2 \
@@ -231,50 +201,46 @@ set -gx FZF_DEFAULT_OPTS \
 --color 'input-border:#996666,input-label:#ffcccc' \
 --color 'header-border:#6699cc,header-label:#99ccff'"
 
-# --------------------------------------------------------------------------------------------
-
 set fish_greeting "" # disable fish greeting
 
 starship init fish | source
-# zoxide init fish --cmd cd | source
 zoxide init fish | source
 nh completions --shell fish | source
 navi widget fish | source
 direnv hook fish | source
+atuin init fish | source
 
-# tv init fish | source
+# function tv_smart_autocomplete
+#     set -l current_prompt (commandline -cp)
+#
+#     set -l output (tv --autocomplete-prompt "$current_prompt")
+#
+#     if test -n "$output"
+#         # add a space if the prompt does not end with one (unless the prompt is an implicit cd, e.g. '\.')
+#         string match -r '.*( |./)$' -- "$current_prompt" || set current_prompt "$current_prompt "
+#         commandline -r "$current_prompt$output"
+#     end
+# end
+#
+# function tv_shell_history
+#     set -l current_prompt (commandline -cp)
+#
+#     set -l output (tv fish-history --input "$current_prompt")
+#
+#     if test -n "$output"
+#         commandline -r "$output"
+#     end
+# end
 
-function tv_smart_autocomplete
-    set -l current_prompt (commandline -cp)
+# bind --erase \ct
+# bind --erase \cr
+# bind --erase -M insert \ct
+# bind --erase -M insert \cr
 
-    set -l output (tv --autocomplete-prompt "$current_prompt")
-
-    if test -n "$output"
-        # add a space if the prompt does not end with one (unless the prompt is an implicit cd, e.g. '\.')
-        string match -r '.*( |./)$' -- "$current_prompt" || set current_prompt "$current_prompt "
-        commandline -r "$current_prompt$output"
-    end
-end
-
-function tv_shell_history
-    set -l current_prompt (commandline -cp)
-
-    set -l output (tv fish-history --input "$current_prompt")
-
-    if test -n "$output"
-        commandline -r "$output"
-    end
-end
-
-bind --erase \ct
-bind --erase \cr
-bind --erase -M insert \ct
-bind --erase -M insert \cr
-
-bind \ct tv_smart_autocomplete
-bind \cr tv_shell_history
-bind -M insert \ct tv_smart_autocomplete
-bind -M insert \cr tv_shell_history
+# bind \ct tv_smart_autocomplete
+# bind \cr tv_shell_history
+# bind -M insert \ct tv_smart_autocomplete
+# bind -M insert \cr tv_shell_history
 
 # Use VIM keybindings
 fish_vi_key_bindings

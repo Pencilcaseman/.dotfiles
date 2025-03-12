@@ -4,14 +4,19 @@ font-feature = ss01,ss02,ss03,ss04,ss05,ss06,ss07,ss08,ss09,ss10,liga,calt
 font-size = 11
 theme = Monokai Soda
 
-cursor-invert-fg-bg = true
+cursor-color = #CFCFCF
+cursor-text = #080808
+# cursor-invert-fg-bg = true
 
 mouse-hide-while-typing = true
 
-command = "/Users/tobydavis/.nix-profile/bin/fish -c 'tmux a -t base || tmux new -s base'"
-# command = "/Users/tobydavis/.nix-profile/bin/fish"
-
-# keybind = ctrl+a>n=new_window
+# Try:
+#  - Fish with Tmux
+#  - Bash with Tmux
+#  - Just Bash
+#  - Cry otherwise...
+# command = "$(export PATH=$HOME/.nix-profile/bin:$PATH; fish -c \"tmux a -t base || tmux new -s base\" || bash -c \"tmux a -t base || tmux new -s base\" || bash)"
+command = "$HOME/.config/ghostty/ghostty_startup.sh"
 
 quit-after-last-window-closed = true
 quit-after-last-window-closed-delay = "0s"

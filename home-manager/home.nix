@@ -60,6 +60,7 @@
 
     # Terminals, shells and multiplexers
     fish
+    atuin
     starship
     # zellij
     tmux
