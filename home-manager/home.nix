@@ -144,10 +144,10 @@
     figlet # ASCII text art
 
     # Editors
-    # emacs
     # neovim # Installed using Bob
-    # helix
     neovide
+    # helix
+    emacs
 
     tree-sitter
 
