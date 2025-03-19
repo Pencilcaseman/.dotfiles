@@ -24,18 +24,18 @@ end
 # X11 binaries
 contains /usr/X11/bin $PATH || set -gx PATH /usr/X11/bin $PATH
 
-contains /usr/local/bin $PATH || set -gx PATH /usr/local/bin $PATH
-contains /Library/TeX/texbin $PATH || set -gx PATH $PATH /Library/TeX/texbin
-contains $HOME/.modular $PATH || set -gx PATH $PATH $HOME/.modular
-contains $HOME/.modular/pkg/packages.modular.com_mojo/bin $PATH || set -gx PATH $PATH $HOME/.modular/pkg/packages.modular.com_mojo/bin
-contains $HOME/.nix-profile/lib $PATH || set -gx PATH $PATH $HOME/.nix-profile/lib
-contains $HOME/.codon/bin $PATH || set -gx PATH $PATH $HOME/.codon/bin
+set -gx PATH /usr/local/bin $PATH
+set -gx PATH /Library/TeX/texbin $PATH
+set -gx PATH $HOME/.modular $PATH
+set -gx PATH $HOME/.modular/pkg/packages.modular.com_mojo/bin $PATH
+set -gx PATH $HOME/.nix-profile/lib $PATH
+set -gx PATH $HOME/.codon/bin $PATH
 
-contains $HOME/opt/bin $PATH || set -gx PATH $PATH $HOME/opt/bin
-contains $HOME/.config/bin$PATH || set -gx PATH $PATH $HOME/.config/bin
-contains $HOME/.local/share/bob/nvim-bin $PATH || set -gx PATH $PATH $HOME/.local/share/bob/nvim-bin
+set -gx PATH $HOME/opt/bin $PATH
+set -gx PATH $HOME/.config/bin $PATH
+set -gx PATH $PATH $HOME/.local/share/bob/nvim-bin
 
-contains $HOME/.nix-profile/lib $LIBRARY_PATH || set -gx LIBRARY_PATH $LIBRARY_PATH $HOME/.nix-profile/lib
+set -gx LIBRARY_PATH $HOME/.nix-profile/lib $LIBRARY_PATH
 
 # Cat (bat)
 set -gx PATH $PATH "$HOME/.local/bin"
@@ -128,13 +128,14 @@ set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib" $LDFLAGS
 set -gx CFLAGS "-I/opt/homebrew/opt/llvm/include" $CFLAGS
 set -gx CXXFLAGS "-I/opt/homebrew/opt/llvm/include" $CXXFLAGS
 
-set -gx LIBCLANG_PATH (brew --prefix llvm)/lib
-set -gx PATH (brew --prefix llvm)/bin $PATH
-set -gx CC (brew --prefix llvm)/bin/clang
-set -gx CXX (brew --prefix llvm)/bin/clang++
-set -gx FC (brew --prefix flang)/bin/flang-new
+set -gx LLVM_PATH (brew --prefix llvm)
+set -gx LIBCLANG_PATH $LLVM_PATH/lib
+set -gx PATH $LLVM_PATH/bin $PATH
+set -gx CC $LLVM_PATH/bin/clang
+set -gx CXX $LLVM_PATH/bin/clang++
+set -gx FC $LLVM_PATH/bin/flang-new
 
-set -gx BINDGEN_EXTRA_CLANG_ARGS "-I/opt/homebrew/opt/llvm/include"
+set -gx BINDGEN_EXTRA_CLANG_ARGS "-I$LLVM_PATH/include"
 
 # Vulkan SDK
 set -gx VULKAN_SDK (realpath ~/VulkanSDK/1.4.304.0/macOS/)
