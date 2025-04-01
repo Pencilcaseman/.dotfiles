@@ -26,4 +26,4 @@ LIB_ROOT="$HOME/Library/Application Support/LibreWolf/NativeMessagingHosts"
 [ ! -e "$LIB_ROOT" ] && ln -s "$MOZ_ROOT" "$LIB_ROOT"
 
 cargo install-update -a
-bob update
+# bob update

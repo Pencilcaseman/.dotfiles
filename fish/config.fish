@@ -128,13 +128,6 @@ set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib" $LDFLAGS
 set -gx CFLAGS "-I/opt/homebrew/opt/llvm/include" $CFLAGS
 set -gx CXXFLAGS "-I/opt/homebrew/opt/llvm/include" $CXXFLAGS
 
-set -gx LLVM_PATH (brew --prefix llvm)
-set -gx LIBCLANG_PATH $LLVM_PATH/lib
-set -gx PATH $LLVM_PATH/bin $PATH
-set -gx CC $LLVM_PATH/bin/clang
-set -gx CXX $LLVM_PATH/bin/clang++
-set -gx FC $LLVM_PATH/bin/flang-new
-
 set -gx BINDGEN_EXTRA_CLANG_ARGS "-I$LLVM_PATH/include"
 
 # Vulkan SDK
@@ -152,6 +145,32 @@ alias fs "yazi"
 alias diff difft
 
 alias lg lazygit
+
+function loadllvm --description "Load a specific version of LLVM"
+    # Default to the latest version if no argument is provided
+    set -l llvm_version ""
+
+    if test (count $argv) -gt 0
+        echo "DOING THING"
+        set llvm_version "@$argv[1]"
+    end
+
+    set -l llvm_path (brew --prefix "llvm$llvm_version")
+
+    if test -d $llvm_path
+        set -gx LLVM_PATH $llvm_path
+        set -gx LIBCLANG_PATH $LLVM_PATH/lib
+        set -gx PATH $LLVM_PATH/bin $PATH
+        set -gx CC $LLVM_PATH/bin/clang
+        set -gx CXX $LLVM_PATH/bin/clang++
+        set -gx FC $LLVM_PATH/bin/flang-new
+
+        echo "LLVM$llvm_version loaded successfully from $LLVM_PATH"
+    else
+        echo "Error: LLVM$llvm_version not found. Make sure it's installed via Homebrew."
+        return 1
+    end
+end
 
 # Launch alacritty in the background without tmux integration. Useful for cases
 # where you want to ssh into a remote machine and run tmux there.

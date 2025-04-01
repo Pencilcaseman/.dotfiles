@@ -145,7 +145,7 @@
     figlet # ASCII text art
 
     # Editors
-    # neovim # Installed using Bob
+    neovim
     neovide
     # helix
     emacs
