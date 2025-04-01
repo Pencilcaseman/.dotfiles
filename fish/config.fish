@@ -165,7 +165,7 @@ function nv --description 'Run Neovide in the background'
 end
 
 function nvm --description 'Launch a minimal Neovim configuration'
-    NVIM_MINIMAL=True nvim $argv
+    nvim --clean
 end
 
 # Make a directory and cd into it

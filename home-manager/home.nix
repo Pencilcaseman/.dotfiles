@@ -102,6 +102,7 @@
     ripgrep-all
     gping
     bat
+    coreutils # Rust rewrite of the GNU core utilities
     btop
     htop
     difftastic
@@ -229,10 +230,10 @@
     (hiPrio lua)
     (lowPrio luajit)
 
-    #  - Julia 
+    #  - Julia
     julia_19-bin
 
-    #  - JavaScript, Typescript, CSS, etc. 
+    #  - JavaScript, Typescript, CSS, etc.
     nodejs_22
     typescript
     eslint_d
@@ -241,12 +242,14 @@
     bun
     deno
 
-    #  - Go 
+    #  - Go
     go
 
     # Apps
     # sniffnet
     czkawka
+    # bitwarden-cli
+    # bitwarden-desktop
 
     # Libraries
     mpv # CLI video player
@@ -262,6 +265,7 @@
     imagemagick
     # zbar # Installed via brew
     dirbuster
+    # docling # Locally process documents for generative AI # Installed via pip
     libfabric
     m4
     protobuf

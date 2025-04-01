@@ -2,10 +2,10 @@
 
 set -euxo pipefail
 
-cd ~/.config/home-manager 
+pushd $HOME/.config/home-manager 
 
 # nix flake update
-nh home switch --update .
+nh home switch --update . || echo "A package failed to build"
 
 rustup update
 rustup upgrade
