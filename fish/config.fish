@@ -172,6 +172,8 @@ function loadllvm --description "Load a specific version of LLVM"
     end
 end
 
+loadllvm
+
 # Launch alacritty in the background without tmux integration. Useful for cases
 # where you want to ssh into a remote machine and run tmux there.
 function ant --description 'Run Alacritty in the background'
