@@ -158,6 +158,8 @@ function loadllvm --description "Load a specific version of LLVM"
             if test (count $argv) -gt 1
                 set llvm_version "@$argv[2]"
             end
+        else
+            set llvm_version "@$argv[1]"
         end
     end
 
