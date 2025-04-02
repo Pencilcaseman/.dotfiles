@@ -149,10 +149,16 @@ alias lg lazygit
 function loadllvm --description "Load a specific version of LLVM"
     # Default to the latest version if no argument is provided
     set -l llvm_version ""
+    set -l silent_mode 0
 
     if test (count $argv) -gt 0
-        echo "DOING THING"
-        set llvm_version "@$argv[1]"
+        if test $argv[1] = "--silent"
+            set silent_mode 1
+
+            if test (count $argv) -gt 1
+                set llvm_version "@$argv[2]"
+            end
+        end
     end
 
     set -l llvm_path (brew --prefix "llvm$llvm_version")
@@ -165,14 +171,18 @@ function loadllvm --description "Load a specific version of LLVM"
         set -gx CXX $LLVM_PATH/bin/clang++
         set -gx FC $LLVM_PATH/bin/flang-new
 
-        echo "LLVM$llvm_version loaded successfully from $LLVM_PATH"
+        if test $silent_mode -eq 0
+            echo "LLVM$llvm_version loaded successfully from $LLVM_PATH"
+        end
     else
-        echo "Error: LLVM$llvm_version not found. Make sure it's installed via Homebrew."
+        if test $silent_mode -eq 0
+            echo "Error: LLVM$llvm_version not found. Make sure it's installed via Homebrew."
+        end
         return 1
     end
 end
 
-loadllvm
+loadllvm --silent
 
 # Launch alacritty in the background without tmux integration. Useful for cases
 # where you want to ssh into a remote machine and run tmux there.
