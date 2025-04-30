@@ -62,7 +62,7 @@
     fish
     atuin
     starship
-    # zellij
+    # zellij # Installed via cargo
     tmux
     alacritty
     # lsd
@@ -102,13 +102,15 @@
     ripgrep-all
     gping
     bat
-    coreutils # Rust rewrite of the GNU core utilities
+    coreutils
+    # uutils-coreutils # Rust rewrite of the GNU core utilities
     btop
     htop
     difftastic
     cloc
     glow
     gh
+    ueberzugpp
     lazygit
     jellyfin-ffmpeg
     fzf
@@ -148,7 +150,7 @@
     neovim
     neovide
     # helix
-    emacs
+    # emacs
 
     tree-sitter
 
@@ -162,6 +164,7 @@
     zig
 
     #  - Python 
+    uv
     # python313
     # pypy310
 
@@ -251,7 +254,10 @@
     # bitwarden-cli
     # bitwarden-desktop
 
-    # Libraries
+    # Libraries and Applications
+    # gmsh # 3D finite element mesh generator
+    zpaq # ZPAQ compression CLI
+    p7zip # 7zip compression cli
     mpv # CLI video player
     yazi # CLI file explorer
     television # CLI fuzzy finder

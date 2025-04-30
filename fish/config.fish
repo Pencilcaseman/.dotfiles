@@ -1,3 +1,8 @@
+# TODO: REMOVE AFTER ISC25
+set -gx CODE_SATURNE_ISC_PATH /Users/tobydavis/dev/ukscc/ISC/code_saturne/code_saturne-8.3.1-ISC.tar.gz
+
+set -gx SHELL $HOME/.nix-profile/bin/fish
+
 # Spack is really slow to load, so we only source it when we need it
 function spack
     if test -z $SPACK_COMMAND_INITIALIZED
@@ -33,7 +38,6 @@ set -gx PATH $HOME/.codon/bin $PATH
 
 set -gx PATH $HOME/opt/bin $PATH
 set -gx PATH $HOME/.config/bin $PATH
-set -gx PATH $PATH $HOME/.local/share/bob/nvim-bin
 
 set -gx LIBRARY_PATH $HOME/.nix-profile/lib $LIBRARY_PATH
 
@@ -146,44 +150,7 @@ alias diff difft
 
 alias lg lazygit
 
-function loadllvm --description "Load a specific version of LLVM"
-    # Default to the latest version if no argument is provided
-    set -l llvm_version ""
-    set -l silent_mode 0
-
-    if test (count $argv) -gt 0
-        if test $argv[1] = "--silent"
-            set silent_mode 1
-
-            if test (count $argv) -gt 1
-                set llvm_version "@$argv[2]"
-            end
-        else
-            set llvm_version "@$argv[1]"
-        end
-    end
-
-    set -l llvm_path (brew --prefix "llvm$llvm_version")
-
-    if test -d $llvm_path
-        set -gx LLVM_PATH $llvm_path
-        set -gx LIBCLANG_PATH $LLVM_PATH/lib
-        set -gx PATH $LLVM_PATH/bin $PATH
-        set -gx CC $LLVM_PATH/bin/clang
-        set -gx CXX $LLVM_PATH/bin/clang++
-        set -gx FC $LLVM_PATH/bin/flang-new
-
-        if test $silent_mode -eq 0
-            echo "LLVM$llvm_version loaded successfully from $LLVM_PATH"
-        end
-    else
-        if test $silent_mode -eq 0
-            echo "Error: LLVM$llvm_version not found. Make sure it's installed via Homebrew."
-        end
-        return 1
-    end
-end
-
+source $HOME/.config/fish/loadllvm.fish
 loadllvm --silent
 
 # Launch alacritty in the background without tmux integration. Useful for cases
@@ -200,6 +167,8 @@ end
 function nvm --description 'Launch a minimal Neovim configuration'
     nvim --clean
 end
+
+set -gx PATH $HOME/.local/share/bob/nvim-bin $PATH
 
 # Make a directory and cd into it
 function mkcd --description 'Make a directory and cd into it'
@@ -239,7 +208,7 @@ set fish_greeting "" # disable fish greeting
 
 starship init fish | source
 zoxide init fish | source
-nh completions --shell fish | source
+nh completions fish | source
 navi widget fish | source
 direnv hook fish | source
 atuin init fish | source

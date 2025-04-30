@@ -412,7 +412,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 # args = ["--login", "-c", "tmux a -t base || tmux new -s base"]
 
 program = "/Users/tobydavis/.nix-profile/bin/fish"
-args = ["-c", "tmux a -t base || tmux new -s base"]
+# args = ["-c", "tmux a -t base || tmux new -s base"]
 
 # args = [
 #     "--login",
