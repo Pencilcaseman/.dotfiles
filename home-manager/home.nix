@@ -164,9 +164,10 @@
     zig
 
     #  - Python 
+    python314
     uv
-    # python313
-    # pypy310
+    pipx
+    # pypy3
 
     #  - Typst
     typst
@@ -200,8 +201,8 @@
 
     #  - C#
     (hiPrio dotnet-sdk_9)
-    (lowPrio msbuild)
-    # (lowPrio mono) # Installed via brew (breaks with msbuild)
+    # (lowPrio msbuild)
+    (lowPrio mono) # Installed via brew (breaks with msbuild)
 
     # Haskell
     ghc
@@ -269,7 +270,7 @@
     foremost # This thing is awesome
     zsteg # Steganography
     imagemagick
-    # zbar # Installed via brew
+    zbar # Installed via brew
     dirbuster
     # docling # Locally process documents for generative AI # Installed via pip
     libfabric

@@ -26,5 +26,5 @@ MOZ_ROOT="$HOME/Library/Application Support/Mozilla/NativeMessagingHosts"
 LIB_ROOT="$HOME/Library/Application Support/LibreWolf/NativeMessagingHosts"
 [ ! -e "$LIB_ROOT" ] && ln -s "$MOZ_ROOT" "$LIB_ROOT"
 
-cargo install-update -a
+cargo install-update -a -g
 bob update

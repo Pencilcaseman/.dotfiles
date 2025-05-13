@@ -184,7 +184,9 @@ end
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 # Do this last to ensure the correct python install is used
-set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
+# set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
+
+export PIPX_DEFAULT_PYTHON=$HOME/.nix-profile/bin/python
 
 # Set CARGO_REGISTRY_TOKEN
 set -gx CARGO_REGISTRY_TOKEN (cat $HOME/opt/cargo_token.txt)
