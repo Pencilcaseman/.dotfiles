@@ -102,8 +102,11 @@
     ripgrep-all
     gping
     bat
-    coreutils
-    # uutils-coreutils # Rust rewrite of the GNU core utilities
+    # coreutils
+
+    uutils-coreutils # Rust rewrite of the GNU core utilities
+    (pkgs.uutils-coreutils.override { prefix = ""; })
+
     btop
     htop
     difftastic
@@ -164,7 +167,7 @@
     zig
 
     #  - Python 
-    python314
+    python313
     uv
     pipx
     # pypy3
@@ -261,6 +264,8 @@
     p7zip # 7zip compression cli
     mpv # CLI video player
     yazi # CLI file explorer
+    dust # du + rust = dust :D
+    # sudo-rs # Rust rewrite of sudo
     television # CLI fuzzy finder
     eza # An alternative to the unix `ls` command
     navi # CLI cheatsheet
