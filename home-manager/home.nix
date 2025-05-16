@@ -63,10 +63,9 @@
     atuin
     starship
     # zellij # Installed via cargo
-    tmux
+    # tmux
     alacritty
     # lsd
-    starship
     # lapce
 
     # Czkawka (doesn't work)
@@ -83,7 +82,7 @@
     # VMs
     # ovftool
     qemu
-    utm
+    # utm
 
     # Terminal tools
     # bore # Tunnel local ports to a remote server
@@ -95,14 +94,13 @@
     john # Brew installed
     # wireshark # Installed as MacOS package
     git
-    gnused
+    # gnused
     bottom
     gitoxide
     ripgrep
     ripgrep-all
     gping
     bat
-    # coreutils
 
     uutils-coreutils # Rust rewrite of the GNU core utilities
     (pkgs.uutils-coreutils.override { prefix = ""; })
@@ -111,9 +109,9 @@
     htop
     difftastic
     cloc
-    glow
+    # glow
     gh
-    ueberzugpp
+    # ueberzugpp
     lazygit
     jellyfin-ffmpeg
     fzf
@@ -122,32 +120,29 @@
     tree
     speedtest-cli
     jq
-    rewrk
     zoxide
     hyperfine
-    rename
     just
-    watch
 
-    autoconf269
+    autoconf
     libtool
     automake
 
     # Terminal things (kinda useless but fun)
-    cmatrix # Random ascii art
-    cowsay # Cow says hello
-    lolcat # Rainbowzzz.
-    neofetch # System information
-    sl # ls? No? Oops.
-    toilet # ASCII text and art
-    boxes # Draw boxes around things.
+    # cmatrix # Random ascii art
+    # cowsay # Cow says hello
+    # lolcat # Rainbowzzz.
+    # neofetch # System information
+    # sl # ls? No? Oops.
+    # toilet # ASCII text and art
+    # boxes # Draw boxes around things.
     # aewan # ASCII art editor
     asciiquarium # Aquarium??
     cbonsai # Bonsai tree :D
     # oneko # Lil cat follows cursor
-    nyancat # Nyan cat
-    libcaca # ASCII stuff
-    figlet # ASCII text art
+    # nyancat # Nyan cat
+    # libcaca # ASCII stuff
+    # figlet # ASCII text art
 
     # Editors
     neovim
@@ -185,6 +180,7 @@
     cpplint
     lld
     # mold
+    # wild
     lldb
     bear
     # libgccjit
@@ -211,8 +207,7 @@
     ghc
     haskell-language-server
 
-    # cmake
-    # gnumake
+    gnumake
     cmakeCurses
     doxygen
     glew
@@ -285,7 +280,6 @@
     libiconv
     zlib
     # mpi
-    darwin.Security
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
