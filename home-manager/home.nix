@@ -124,8 +124,11 @@
     hyperfine
     just
 
-    autoconf
+    automake
     libtool
+    pkg-config
+    autoconf
+    autogen
     automake
 
     # Terminal things (kinda useless but fun)

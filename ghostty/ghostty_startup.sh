@@ -9,18 +9,8 @@ if which fish >/dev/null 2>&1; then
 	export SHELL=fish
 fi
 
-zellij && exit
-
-# # Try fish with tmux
-# if command -v fish >/dev/null 2>&1; then
-#   export SHELL=$(which fish)
-#   fish -c "tmux a -t base || tmux new -s base" && exit
-# fi
-#
-# # Try bash with tmux
-# if command -v tmux >/dev/null 2>&1; then
-#   tmux a -t base || tmux new -s base && exit
-# fi
-#
-# # Fall back to bash
-# exec bash
+if [ -z "${NO_ZELLIJ_PLZ}" ]; then
+	zellij && exit
+else
+	$SHELL && exit
+fi
