@@ -1,19 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "tobydavis";
   home.homeDirectory = "/Users/tobydavis";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # TODO: Remove these when I no longer have to program in C#
-  nixpkgs.config.permittedInsecurePackages = [
-    "dotnet-sdk-6.0.428"
-    "dotnet-runtime-6.0.36"
-  ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "dotnet-sdk-6.0.428"
+      "dotnet-runtime-6.0.36"
+    ];
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -24,94 +21,49 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-
-    # pkgs.htop
-
-    # Makes the output pretty :)
+    # Output formatting
     nix-output-monitor
     nh
 
-    # nerdfonts
-    # (pkgs.nerdfonts.override {
-    #   fonts = [ "JetBrainsMono" ];
-    # })
-
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.monaspace
+    # # Nerd Fonts
+    # nerd-fonts.jetbrains-mono
+    # nerd-fonts.fira-code
+    # nerd-fonts.monaspace
 
     # Terminals, shells and multiplexers
     fish
     atuin
     starship
     # zellij # Installed via cargo
-    # tmux
     alacritty
     # lsd
     # lapce
 
-    # Czkawka (doesn't work)
-    # glib
-    # gtk4
-    # librsvg 
-    # libheif 
-    # libraw
-    # czkawka
-
-    # GNUPlot
-    # gnuplot
-
-    # VMs
-    # ovftool
+    # VM
     qemu
-    # utm
 
     # Terminal tools
-    # bore # Tunnel local ports to a remote server
     hunspell # Spellchecker
     tldr
     hexyl # Command line hex viewer
     texinfoInteractive
     hashcat
-    john # Brew installed
+    # john # Brew installed
     # wireshark # Installed as MacOS package
     git
-    # gnused
     bottom
     gitoxide
     ripgrep
     ripgrep-all
     gping
     bat
-
-    uutils-coreutils # Rust rewrite of the GNU core utilities
-    (pkgs.uutils-coreutils.override { prefix = ""; })
-
+    (uutils-coreutils.override { prefix = ""; }) # Rust rewrite of GNU core utilities
     btop
     htop
     difftastic
     cloc
-    # glow
     gh
-    # ueberzugpp
     lazygit
     jellyfin-ffmpeg
     fzf
@@ -124,89 +76,54 @@
     hyperfine
     just
 
+    # Build tools
     automake
     libtool
     pkg-config
     autoconf
     autogen
-    automake
+    # automake # Duplicate? Kept one.
 
-    # Terminal things (kinda useless but fun)
-    # cmatrix # Random ascii art
-    # cowsay # Cow says hello
-    # lolcat # Rainbowzzz.
-    # neofetch # System information
-    # sl # ls? No? Oops.
-    # toilet # ASCII text and art
-    # boxes # Draw boxes around things.
-    # aewan # ASCII art editor
-    asciiquarium # Aquarium??
-    cbonsai # Bonsai tree :D
-    # oneko # Lil cat follows cursor
-    # nyancat # Nyan cat
-    # libcaca # ASCII stuff
-    # figlet # ASCII text art
+    # Terminal fun
+    asciiquarium
+    cbonsai
+    # oneko
+    # nyancat
 
     # Editors
     neovim
     neovide
-    # helix
-    # emacs
-
     tree-sitter
 
     # Languages
-    #  - Rust 
+    #  - Rust
     rustup
     bacon
-    # loco-cli
 
     #  - Zig
     zig
 
-    #  - Python 
+    #  - Python
     python313
     uv
     pipx
-    # pypy3
 
     #  - Typst
     typst
     typstyle
 
-    #  - Perl 
-    # perl
-    # perlPackages
-
     #  - C/C++
     cppcheck
     cpplint
     lld
-    # mold
-    # wild
     lldb
     bear
-    # libgccjit
- 
-    # WARNING: The following may cause issues when compiling with 
-    # Apple-related things.
-    # NOTE: Currently replaced with custom installations
-    #
-    # (hiPrio gcc13)
-    # (lowPrio llvmPackages_18.libllvm)
-    # (lowPrio llvmPackages_18.libcxxClang)
-    # (lowPrio llvmPackages_18.libcxx)
-    # (lowPrio llvmPackages_18.clang-tools)
-    #
-    # llvmPackages_18.clang-tools
-    # compdb
 
     #  - C#
     (hiPrio dotnet-sdk_9)
-    # (lowPrio msbuild)
     (lowPrio mono) # Installed via brew (breaks with msbuild)
 
-    # Haskell
+    #  - Haskell
     ghc
     haskell-language-server
 
@@ -214,20 +131,12 @@
     cmakeCurses
     doxygen
     glew
-    # cudaPackages.cuda_nvcc
-
-    # Fortran 
-    # (gfortran13.overrideAttrs (oldAttrs: {
-    #   postInstall = (oldAttrs.postInstall or "") + ''
-    #     rm -f $out/bin/g++
-    #   '';
-    # }))
 
     #  - Java
     jdk21
 
-    #  - LaTeX 
-    texliveFull
+    #  - LaTeX
+    texliveFull # Consider texlive.scheme-small or medium if full is too large
     tectonic
     pandoc
 
@@ -252,75 +161,44 @@
 
     # Apps
     # sniffnet
-    czkawka
-    # bitwarden-cli
-    # bitwarden-desktop
+    # czkawka
 
-    # Libraries and Applications
-    # gmsh # 3D finite element mesh generator
-    zpaq # ZPAQ compression CLI
-    p7zip # 7zip compression cli
-    mpv # CLI video player
-    yazi # CLI file explorer
-    dust # du + rust = dust :D
-    # sudo-rs # Rust rewrite of sudo
-    television # CLI fuzzy finder
-    eza # An alternative to the unix `ls` command
-    navi # CLI cheatsheet
+    # Libraries and Utilities
+    zpaq
+    p7zip
+    mpv
+    yazi
+    dust
+    television
+    eza
+    navi
     rustscan
     wget
     exiftool
-    foremost # This thing is awesome
-    zsteg # Steganography
+    foremost
+    zsteg
     imagemagick
-    zbar # Installed via brew
+    # zbar # Installed via brew
     dirbuster
-    # docling # Locally process documents for generative AI # Installed via pip
     libfabric
     m4
     protobuf
-    pkg-config
+    # pkg-config # Duplicate, already under build tools
     libiconv
     zlib
-    # mpi
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
+  # Configure fonts for macOS
+  fonts.fontconfig.enable = true;
+
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    # Example:
+    # ".config/fish/config.fish".source = ./fish/config.fish;
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/tobydavis/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    # EDITOR = "nvim";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # pkgs.mkShell { buildInputs = [ darwin.apple_sdk.frameworks.Security pkgconfig openssl ]; }
 }
