@@ -71,9 +71,11 @@
     copilot-cli
     tree
     speedtest-cli
+    mermaid-cli
     jq
     zoxide
     hyperfine
+    binsider
     just
 
     # Build tools

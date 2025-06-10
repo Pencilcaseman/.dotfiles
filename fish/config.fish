@@ -110,13 +110,17 @@ setspellchecklang en --silent
 
 # Mullvad commands
 function mullvadforcedisconnect --description 'Disable Lockdown Mode and disconnect the VPN'
+    logecho "Disconnecting Mullvad VPN"
     mullvad lockdown-mode set off
     mullvad disconnect
+    warnecho "You are now $FMT_COLOR_RED$FMT_BOLD""UNSECURE""$FMT_RESET"
 end
 
 function mullvadforceconnect --description 'Enable lockdown mode and connect the VPN'
+    logecho "Connecting Mullvad VPN"
     mullvad lockdown-mode set on
     mullvad connect
+    logecho "You are now $FMT_COLOR_GREEN$FMT_BOLD""SECURE""$FMT_RESET"
 end
 
 
@@ -151,6 +155,9 @@ alias ssh "TERM=xterm-256color command ssh"
 alias diff difft
 
 alias lg lazygit
+
+alias mvc mullvadforceconnect
+alias mvd mullvadforcedisconnect
 
 source $HOME/.config/fish/loadllvm.fish
 loadllvm --silent
