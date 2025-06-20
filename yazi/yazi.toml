@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 ratio = [2, 2, 3]
 linemode = "size"
 

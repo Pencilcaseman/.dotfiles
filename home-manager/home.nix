@@ -78,13 +78,12 @@
     binsider
     just
 
-    # Build tools
-    automake
-    libtool
-    pkg-config
-    autoconf
-    autogen
-    # automake # Duplicate? Kept one.
+    # # Build tools -- installed with brew
+    # automake
+    # libtool
+    # pkg-config
+    # autoconf
+    # autogen
 
     # Terminal fun
     asciiquarium
@@ -142,9 +141,9 @@
     tectonic
     pandoc
 
-    #  - Lua
-    (hiPrio lua)
-    (lowPrio luajit)
+    # #  - Lua
+    # (hiPrio lua)
+    # (lowPrio luajit)
 
     #  - Julia
     julia_19-bin
