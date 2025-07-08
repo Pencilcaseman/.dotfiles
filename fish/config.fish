@@ -1,6 +1,3 @@
-# TODO: REMOVE AFTER ISC25
-set -gx CODE_SATURNE_ISC_PATH /Users/tobydavis/dev/ukscc/ISC/code_saturne/code_saturne-8.3.1-ISC.tar.gz
-
 set -gx SHELL $HOME/.nix-profile/bin/fish
 
 # Spack is really slow to load, so we only source it when we need it

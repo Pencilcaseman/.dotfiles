@@ -92,6 +92,7 @@
     # nyancat
 
     # Editors
+    emacs
     neovim
     neovide
     tree-sitter
