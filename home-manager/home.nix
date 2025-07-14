@@ -96,6 +96,7 @@
     neovim
     neovide
     tree-sitter
+    # helix
 
     # Languages
     #  - Rust
