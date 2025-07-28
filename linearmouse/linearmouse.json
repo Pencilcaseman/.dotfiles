@@ -1,35 +1,47 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.1",
   "schemes" : [
     {
-      "pointer" : {
-        "speed" : 0.3472,
-        "acceleration" : 0
-      },
       "if" : {
         "device" : {
-          "vendorID" : "0x46d",
-          "productName" : "MX Master 3",
-          "productID" : "0xb023",
           "category" : "mouse",
-          "serialNumber" : "DD181B5195011EC8"
+          "productID" : "0xb023",
+          "productName" : "MX Master 3",
+          "serialNumber" : "DD181B5195011EC8",
+          "vendorID" : "0x46d"
         }
       },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.3472
+      },
       "scrolling" : {
+        "acceleration" : 1,
+        "distance" : 3,
         "reverse" : {
           "vertical" : true
         },
-        "distance" : 3,
-        "speed" : 0,
-        "acceleration" : 1
+        "speed" : 0
       }
     },
     {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc542",
+          "productName" : "Wireless Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
       "pointer" : {
         "acceleration" : 0,
-        "speed" : 0.2488,
-        "disableAcceleration" : false
+        "disableAcceleration" : false,
+        "speed" : 0.2488
       },
       "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
         "distance" : {
           "vertical" : "50px"
         },
@@ -38,17 +50,6 @@
         },
         "speed" : {
           "vertical" : 0
-        },
-        "acceleration" : {
-          "vertical" : 1
-        }
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0xc542",
-          "productName" : "Wireless Receiver",
-          "category" : "mouse",
-          "vendorID" : "0x46d"
         }
       }
     },
@@ -61,94 +62,110 @@
           "vendorID" : "0x413c"
         }
       },
-      "scrolling" : {
-        "speed" : 0,
-        "distance" : {
-          "vertical" : "36px",
-          "horizontal" : 3
-        },
-        "reverse" : true,
-        "acceleration" : 1
-      },
       "pointer" : {
         "acceleration" : 0,
         "speed" : 0.6603
+      },
+      "scrolling" : {
+        "acceleration" : 1,
+        "distance" : {
+          "horizontal" : 3,
+          "vertical" : "36px"
+        },
+        "reverse" : true,
+        "speed" : 0
       }
     },
     {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc52b",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.3226
+      },
       "scrolling" : {
         "acceleration" : {
-          "vertical" : 0.72,
-          "horizontal" : 1
+          "horizontal" : 1,
+          "vertical" : 0.72
         },
         "reverse" : true,
         "speed" : {
           "vertical" : 17.7
         }
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0xc52b",
-          "productName" : "USB Receiver",
-          "vendorID" : "0x46d",
-          "category" : "mouse"
-        }
-      },
-      "pointer" : {
-        "speed" : 0.3226,
-        "acceleration" : 0
       }
     },
     {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        },
-        "speed" : {
-          "vertical" : 11.81,
-          "horizontal" : 24.83
-        },
-        "acceleration" : {
-          "horizontal" : 0,
-          "vertical" : 0.41
-        },
-        "distance" : {
-          "vertical" : "auto"
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x1830",
+          "productName" : "SteelSeries Rival 3 Wireless",
+          "vendorID" : "0x1038"
         }
       },
       "pointer" : {
         "acceleration" : 0,
         "speed" : 0.5546
       },
-      "if" : {
-        "device" : {
-          "productID" : "0x1830",
-          "vendorID" : "0x1038",
-          "productName" : "SteelSeries Rival 3 Wireless",
-          "category" : "mouse"
-        }
-      }
-    },
-    {
-      "pointer" : {
-        "speed" : 0.4617,
-        "acceleration" : 0
-      },
-      "if" : {
-        "device" : {
-          "productName" : "Rival 3 Wireless",
-          "vendorID" : "0x111",
-          "category" : "mouse",
-          "productID" : "0x1830"
-        }
-      },
       "scrolling" : {
         "acceleration" : {
-          "vertical" : 0.68
+          "horizontal" : 0,
+          "vertical" : 0.41
+        },
+        "distance" : {
+          "vertical" : "auto"
+        },
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "horizontal" : 24.83,
+          "vertical" : 11.81
         }
       }
     },
     {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x1830",
+          "productName" : "Rival 3 Wireless",
+          "vendorID" : "0x111"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.4617
+      },
+      "scrolling" : {
+        "acceleration" : 1,
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 15
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x2510",
+          "productName" : "USB Optical Mouse",
+          "vendorID" : "0x93a"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.2016
+      },
       "scrolling" : {
         "acceleration" : {
           "vertical" : 0.72
@@ -156,20 +173,7 @@
         "reverse" : {
           "vertical" : true
         }
-      },
-      "pointer" : {
-        "acceleration" : 0,
-        "speed" : 0.2016
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0x2510",
-          "category" : "mouse",
-          "productName" : "USB Optical Mouse",
-          "vendorID" : "0x93a"
-        }
       }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }

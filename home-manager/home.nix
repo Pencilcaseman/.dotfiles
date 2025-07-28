@@ -122,6 +122,9 @@
     lldb
     bear
 
+    #  - Ruby
+    ruby
+
     #  - C#
     (hiPrio dotnet-sdk_9)
     (lowPrio mono) # Installed via brew (breaks with msbuild)

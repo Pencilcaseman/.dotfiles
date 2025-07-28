@@ -5,44 +5,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Swap /~ and §/±",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "grave_accent_and_tilde" },
-                                "to": [{ "key_code": "non_us_backslash" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": { "key_code": "non_us_backslash" },
-                                "to": [{ "key_code": "grave_accent_and_tilde" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map Caps-Lock to Escape",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": ["any"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "escape",
-                                        "modifiers": []
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Tmux -- CMD+: to CTRL+b",
+                        "description": "Tmux -- CMD+; to CTRL+b",
                         "manipulators": [
                             {
                                 "from": {
@@ -56,28 +19,6 @@
                                     {
                                         "key_code": "b",
                                         "modifiers": ["control"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Vim -- Caps Lock to Shift+Tab",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": ["any"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["shift"]
                                     }
                                 ],
                                 "type": "basic"
@@ -103,6 +44,29 @@
                             "to": [{ "key_code": "left_command" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "escape" }]
+                        },
+                        {
+                            "from": { "key_code": "escape" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 2065,
+                        "vendor_id": 13364
+                    },
+                    "ignore": false,
+                    "ignore_vendor_events": true
                 }
             ],
             "name": "Default profile",
