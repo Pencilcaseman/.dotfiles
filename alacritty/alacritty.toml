@@ -5,15 +5,15 @@ program = "/Users/tobydavis/.nix-profile/bin/fish"
 size = 11.0
 
 [font.normal]
-family = "MonaSpiceNe Nerd Font"
+family = "Monaspace Neon Var"
 style = "Light"
 
 [font.italic]
-family = "MonaSpiceNe Nerd Font"
+family = "Monaspace Neon Var"
 style = "Light Italic"
 
 [font.bold]
-family = "MonaSpiceNe Nerd Font"
+family = "Monaspace Neon Var"
 style = "Medium"
 
 [font.offset]
