@@ -35,3 +35,5 @@ wireshark
 yarn/global/node_modules
 yarn/global
 karabiner/automatic_backups
+helix/runtime/grammars
+helix/themes

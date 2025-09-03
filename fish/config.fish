@@ -1,4 +1,8 @@
+# Ensure programs use the .config directory for config files
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+
 set -gx SHELL $HOME/.nix-profile/bin/fish
+set -gx NH_HOME_FLAKE "$XDG_CONFIG_HOME/home-manager"
 
 # Spack is really slow to load, so we only source it when we need it
 function spack
@@ -183,12 +187,6 @@ end
 function nproc --description 'Print the number of processors'
     sysctl -n hw.physicalcpu
 end
-
-# Ensure programs use the .config directory for config files
-set -gx XDG_CONFIG_HOME "$HOME/.config"
-
-# Do this last to ensure the correct python install is used
-# set -gx PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" $PATH
 
 export PIPX_DEFAULT_PYTHON=$HOME/.nix-profile/bin/python
 

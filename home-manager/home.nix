@@ -77,6 +77,7 @@
     hyperfine
     binsider
     just
+    wrkflw # GitHub Actions workflow runner
 
     # # Build tools -- installed with brew
     # automake
@@ -96,7 +97,7 @@
     neovim
     neovide
     tree-sitter
-    # helix
+    helix
 
     # Languages
     #  - Rust
@@ -106,10 +107,10 @@
     #  - Zig
     zig
 
-    #  - Python
-    python313
-    uv
-    pipx
+    # #  - Python
+    # python313
+    # uv
+    # pipx
 
     #  - Typst
     typst
