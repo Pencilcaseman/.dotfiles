@@ -78,6 +78,7 @@
     binsider
     just
     wrkflw # GitHub Actions workflow runner
+    topgrade # Update all the tools
 
     # # Build tools -- installed with brew
     # automake
@@ -108,9 +109,9 @@
     zig
 
     # #  - Python
-    # python313
-    # uv
-    # pipx
+    python313
+    uv
+    pipx
 
     #  - Typst
     typst
