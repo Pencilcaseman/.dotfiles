@@ -78,7 +78,7 @@
     binsider
     just
     wrkflw # GitHub Actions workflow runner
-    topgrade # Update all the tools
+    # topgrade # Update all the tools
 
     # # Build tools -- installed with brew
     # automake
