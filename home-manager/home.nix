@@ -26,19 +26,12 @@
     nix-output-monitor
     nh
 
-    # # Nerd Fonts
-    # nerd-fonts.jetbrains-mono
-    # nerd-fonts.fira-code
-    # nerd-fonts.monaspace
-
     # Terminals, shells and multiplexers
     fish
     atuin
     starship
-    # zellij # Installed via cargo
+    zellij
     alacritty
-    # lsd
-    # lapce
 
     # VM
     qemu
@@ -56,6 +49,7 @@
     gitoxide
     ripgrep
     ripgrep-all
+    ast-grep
     gping
     bat
     (uutils-coreutils.override { prefix = ""; }) # Rust rewrite of GNU core utilities
@@ -182,6 +176,7 @@
     navi
     rustscan
     wget
+    graphviz # Graph visualization tool
     exiftool
     foremost
     zsteg

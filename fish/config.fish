@@ -51,6 +51,9 @@ alias ccat /bin/cat
 # Hunspell
 set -gx DICT_ROOT $HOME/opt/dict
 
+# Python environment activation
+alias vactivate "source .venv/bin/activate.fish"
+
 # Set Neovim as editor
 set -gx EDITOR nvim
 set -gx VISUAL nvim
@@ -129,16 +132,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# Apple, please ship a proper LLVM installation by default. Pretty please.
-set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/unwind -lunwind" $LDFLAGS
-set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind" $LDFLAGS
-fish_add_path /opt/homebrew/opt/llvm/bin
-set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib" $LDFLAGS
-set -gx CFLAGS "-I/opt/homebrew/opt/llvm/include" $CFLAGS
-set -gx CXXFLAGS "-I/opt/homebrew/opt/llvm/include" $CXXFLAGS
-
-set -gx BINDGEN_EXTRA_CLANG_ARGS "-I$LLVM_PATH/include"
-
 # Vulkan SDK
 set -gx VULKAN_SDK (realpath ~/VulkanSDK/1.4.304.0/macOS/)
 
@@ -216,38 +209,6 @@ nh completions fish | source
 navi widget fish | source
 direnv hook fish | source
 atuin init fish | source
-
-# function tv_smart_autocomplete
-#     set -l current_prompt (commandline -cp)
-#
-#     set -l output (tv --autocomplete-prompt "$current_prompt")
-#
-#     if test -n "$output"
-#         # add a space if the prompt does not end with one (unless the prompt is an implicit cd, e.g. '\.')
-#         string match -r '.*( |./)$' -- "$current_prompt" || set current_prompt "$current_prompt "
-#         commandline -r "$current_prompt$output"
-#     end
-# end
-#
-# function tv_shell_history
-#     set -l current_prompt (commandline -cp)
-#
-#     set -l output (tv fish-history --input "$current_prompt")
-#
-#     if test -n "$output"
-#         commandline -r "$output"
-#     end
-# end
-
-# bind --erase \ct
-# bind --erase \cr
-# bind --erase -M insert \ct
-# bind --erase -M insert \cr
-
-# bind \ct tv_smart_autocomplete
-# bind \cr tv_shell_history
-# bind -M insert \ct tv_smart_autocomplete
-# bind -M insert \cr tv_shell_history
 
 # Use VIM keybindings
 fish_vi_key_bindings
