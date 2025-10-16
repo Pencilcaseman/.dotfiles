@@ -38,6 +38,7 @@
 
     # Terminal tools
     hunspell # Spellchecker
+    harper # Grammar checker (ish)
     tldr
     hexyl # Command line hex viewer
     texinfoInteractive
