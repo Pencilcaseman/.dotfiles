@@ -127,6 +127,11 @@ function mullvadforceconnect --description 'Enable lockdown mode and connect the
     logecho "You are now $FMT_COLOR_GREEN$FMT_BOLD""SECURE""$FMT_RESET"
 end
 
+function mullvadreconnect --description 'Reconnect the VPN'
+    logecho "Reconnecting Mullvad VPN"
+    mullvad reconnect
+    logecho "Mullvad $FMT_COLOR_GREEN$FMT_BOLD""RECONNECTED""$FMT_RESET"
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -152,6 +157,7 @@ alias lg lazygit
 
 alias mvc mullvadforceconnect
 alias mvd mullvadforcedisconnect
+alias mvr mullvadreconnect
 
 source $HOME/.config/fish/loadllvm.fish
 loadllvm --silent
