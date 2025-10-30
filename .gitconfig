@@ -4,7 +4,6 @@
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFxUMYHXmH5jHvJok8NuS7i1POUzHz8UU3Hu0BfciGO3
 [diff]
 	external = difft
-
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

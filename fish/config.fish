@@ -128,9 +128,22 @@ function mullvadforceconnect --description 'Enable lockdown mode and connect the
 end
 
 function mullvadreconnect --description 'Reconnect the VPN'
-    logecho "Reconnecting Mullvad VPN"
-    mullvad reconnect
-    logecho "Mullvad $FMT_COLOR_GREEN$FMT_BOLD""RECONNECTED""$FMT_RESET"
+    set mullvad_status (mullvad status)
+    if string match -q "*Connected*" $mullvad_status
+        mullvad reconnect
+
+        for i in (seq 1 3)
+            echo -n '.'
+            sleep 0.5
+        end
+        echo
+
+        logecho "Mullvad $FMT_COLOR_GREEN$FMT_BOLD""RECONNECTED""$FMT_RESET"
+        return 0
+    else
+        mullvadforceconnect
+        return 0
+    end
 end
 
 if status is-interactive
@@ -218,3 +231,8 @@ atuin init fish | source
 
 # Use VIM keybindings
 fish_vi_key_bindings
+
+set 1password_dir ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+if test $1password_dir
+    set -gx SSH_AUTH_SOCK $1password_dir
+end
