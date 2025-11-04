@@ -1,0 +1,9 @@
+package_paths:
+  "compilers":
+    path: "/path/to/compilers"
+    recursive: false
+
+  "mpi":
+    path: "/path/to/mpi"
+
+  "blas": "/path/to/blas"

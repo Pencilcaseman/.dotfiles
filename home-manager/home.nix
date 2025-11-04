@@ -27,53 +27,53 @@
     nh
 
     # Terminals, shells and multiplexers
-    fish
+    alacritty
     atuin
+    fish
     starship
     zellij
-    alacritty
 
     # VM
     qemu
 
     # Terminal tools
-    hunspell # Spellchecker
-    harper # Grammar checker (ish)
-    tldr
-    hexyl # Command line hex viewer
-    texinfoInteractive
-    hashcat
-    # john # Brew installed
-    # wireshark # Installed as MacOS package
-    git
+    (uutils-coreutils.override { prefix = ""; }) # Rust rewrite of GNU core utilities
+    ast-grep
+    bat
+    binsider
     bottom
+    btop
+    cloc
+    copilot-cli
+    difftastic
+    fd
+    fzf
+    gh
+    git
     gitoxide
+    gping
+    harper # Grammar checker (ish)
+    hashcat
+    hexyl # Command line hex viewer
+    htop
+    hunspell # Spellchecker
+    hyperfine
+    jellyfin-ffmpeg
+    # john # Brew installed
+    jq
+    just
+    lazygit
+    mermaid-cli
     ripgrep
     ripgrep-all
-    ast-grep
-    gping
-    bat
-    (uutils-coreutils.override { prefix = ""; }) # Rust rewrite of GNU core utilities
-    btop
-    htop
-    difftastic
-    cloc
-    gh
-    lazygit
-    jellyfin-ffmpeg
-    fzf
-    fd
-    copilot-cli
-    tree
     speedtest-cli
-    mermaid-cli
-    jq
-    zoxide
-    hyperfine
-    binsider
-    just
-    wrkflw # GitHub Actions workflow runner
+    texinfoInteractive
+    tldr
     # topgrade # Update all the tools
+    tree
+    # wireshark # Installed as MacOS package
+    wrkflw # GitHub Actions workflow runner
+    zoxide
 
     # # Build tools -- installed with brew
     # automake
@@ -81,6 +81,11 @@
     # pkg-config
     # autoconf
     # autogen
+
+    cmakeCurses
+    doxygen
+    glew
+    gnumake
 
     # Terminal fun
     asciiquarium
@@ -90,34 +95,34 @@
 
     # Editors
     emacs
-    neovim
-    neovide
-    tree-sitter
     helix
+    neovide
+    neovim
+    tree-sitter
 
     # Languages
     #  - Rust
-    rustup
     bacon
+    rustup
 
     #  - Zig
     zig
 
     # #  - Python
+    pipx
     python313
     uv
-    pipx
 
     #  - Typst
     typst
     typstyle
 
     #  - C/C++
+    bear
     cppcheck
     cpplint
     lld
     lldb
-    bear
 
     #  - Ruby
     ruby
@@ -130,18 +135,13 @@
     ghc
     haskell-language-server
 
-    gnumake
-    cmakeCurses
-    doxygen
-    glew
-
     #  - Java
     jdk21
 
     #  - LaTeX
-    texliveFull # Consider texlive.scheme-small or medium if full is too large
-    tectonic
     pandoc
+    tectonic
+    texliveFull
 
     # #  - Lua
     # (hiPrio lua)
@@ -151,45 +151,45 @@
     julia_19-bin
 
     #  - JavaScript, Typescript, CSS, etc.
-    nodejs_22
-    typescript
-    eslint_d
-    prettierd
-    corepack_20
     bun
+    corepack_20
     deno
+    eslint_d
+    nodejs_22
+    prettierd
+    typescript
 
     #  - Go
     go
 
     # Apps
-    # sniffnet
     # czkawka
+    # sniffnet
 
     # Libraries and Utilities
-    zpaq
-    p7zip
-    mpv
-    yazi
-    dust
-    television
-    eza
-    navi
-    rustscan
-    wget
-    graphviz # Graph visualization tool
-    exiftool
-    foremost
-    zsteg
-    imagemagick
-    # zbar # Installed via brew
     dirbuster
+    dust
+    exiftool
+    eza
+    foremost
+    graphviz # Graph visualization tool
+    imagemagick
     libfabric
-    m4
-    protobuf
-    # pkg-config # Duplicate, already under build tools
     libiconv
+    m4
+    mpv
+    navi
+    ncurses
+    p7zip
+    protobuf
+    rustscan
+    television
+    wget
+    yazi
+    # zbar # Installed via brew
     zlib
+    zpaq
+    zsteg
   ];
 
   # Configure fonts for macOS
