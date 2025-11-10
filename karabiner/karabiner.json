@@ -10,10 +10,7 @@
                             {
                                 "from": {
                                     "key_code": "semicolon",
-                                    "modifiers": {
-                                        "mandatory": ["command"],
-                                        "optional": ["any"]
-                                    }
+                                    "modifiers": { "mandatory": ["command"] }
                                 },
                                 "to": [
                                     {

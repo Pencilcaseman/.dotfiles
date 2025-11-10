@@ -70,6 +70,7 @@
     texinfoInteractive
     tldr
     # topgrade # Update all the tools
+    tokei # cloc alternative
     tree
     # wireshark # Installed as MacOS package
     wrkflw # GitHub Actions workflow runner
@@ -164,7 +165,7 @@
 
     # Apps
     # czkawka
-    # sniffnet
+    sniffnet
 
     # Libraries and Utilities
     dirbuster
