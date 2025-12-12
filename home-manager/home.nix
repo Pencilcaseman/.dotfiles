@@ -43,7 +43,6 @@
     binsider
     bottom
     btop
-    cloc
     copilot-cli
     difftastic
     fd
@@ -58,7 +57,9 @@
     htop
     hunspell # Spellchecker
     hyperfine
+    iperf3 # Local internet speedtest over TCP/UDP
     jellyfin-ffmpeg
+    jujutsu # Version control system built on Git
     # john # Brew installed
     jq
     just
@@ -129,8 +130,8 @@
     ruby
 
     #  - C#
-    (hiPrio dotnet-sdk_9)
-    (lowPrio mono) # Installed via brew (breaks with msbuild)
+    (lib.hiPrio dotnet-sdk_9)
+    (lib.lowPrio mono) # Installed via brew (breaks with msbuild)
 
     #  - Haskell
     ghc
@@ -149,7 +150,7 @@
     # (lowPrio luajit)
 
     #  - Julia
-    julia_19-bin
+    julia-bin
 
     #  - JavaScript, Typescript, CSS, etc.
     bun
@@ -183,6 +184,8 @@
     ncurses
     p7zip
     protobuf
+    # rustdesk
+    # rustdesk-server
     rustscan
     television
     wget

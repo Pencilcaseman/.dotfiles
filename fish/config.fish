@@ -54,6 +54,9 @@ set -gx DICT_ROOT $HOME/opt/dict
 # Python environment activation
 alias vactivate "source .venv/bin/activate.fish"
 
+# Alias tokei to cloc because I cannot remember tokei
+alias cloc "tokei"
+
 # Set Neovim as editor
 set -gx EDITOR nvim
 set -gx VISUAL nvim
