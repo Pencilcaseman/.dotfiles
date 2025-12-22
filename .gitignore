@@ -1,6 +1,5 @@
 .DS_Store
 backup/
-config.toml
 configstore/
 gcloud/
 gh/
@@ -9,6 +8,9 @@ github-copilot/
 grammarly-languageserver
 jgit/
 nvim_backup/
+
+atuin/config.toml
+config.toml
 
 .gsd-keyboard.settings-ported
 GNOME-xdg-terminals.list

@@ -1,0 +1,13 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Toby Davis"
+email = "toby@tobydavis.dev"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "~/.ssh/git_signing_key.pub"
+
+[ui]
+default-command = "log"
