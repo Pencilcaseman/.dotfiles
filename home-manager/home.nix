@@ -37,6 +37,9 @@
     qemu
 
     # Terminal tools
+    # john # Brew installed
+    # topgrade # Update all the tools
+    # wireshark # Installed as MacOS package
     (uutils-coreutils.override { prefix = ""; }) # Rust rewrite of GNU core utilities
     ast-grep
     bat
@@ -59,21 +62,19 @@
     hyperfine
     iperf3 # Local internet speedtest over TCP/UDP
     jellyfin-ffmpeg
-    jujutsu # Version control system built on Git
-    # john # Brew installed
     jq
+    jujutsu # Version control system built on Git
     just
     lazygit
     mermaid-cli
     ripgrep
     ripgrep-all
+    scc # Funnier cloc alternative
     speedtest-cli
     texinfoInteractive
     tldr
-    # topgrade # Update all the tools
     tokei # cloc alternative
     tree
-    # wireshark # Installed as MacOS package
     wrkflw # GitHub Actions workflow runner
     zoxide
 
@@ -113,6 +114,7 @@
     # #  - Python
     pipx
     python313
+    pypy310
     uv
 
     #  - Typst
@@ -169,6 +171,9 @@
     sniffnet
 
     # Libraries and Utilities
+    # rustdesk
+    # rustdesk-server
+    # zbar # Installed via brew
     dirbuster
     dust
     exiftool
@@ -181,16 +186,14 @@
     m4
     mpv
     navi
+    ncdu
     ncurses
     p7zip
     protobuf
-    # rustdesk
-    # rustdesk-server
     rustscan
     television
     wget
     yazi
-    # zbar # Installed via brew
     zlib
     zpaq
     zsteg

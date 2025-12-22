@@ -55,7 +55,7 @@ set -gx DICT_ROOT $HOME/opt/dict
 alias vactivate "source .venv/bin/activate.fish"
 
 # Alias tokei to cloc because I cannot remember tokei
-alias cloc "tokei"
+alias cloc tokei
 
 # Set Neovim as editor
 set -gx EDITOR nvim
@@ -67,7 +67,7 @@ function setspellchecklang --description 'Set the spellchecker language'
     set -l lang ""
 
     for arg in $argv
-        if test "$arg" = "--silent"
+        if test "$arg" = --silent
             set silent 1
         else
             set lang $arg
@@ -163,8 +163,8 @@ alias tlls "eza --icons --tree --smart-group --git --long --binary"
 
 alias btmb "btm --basic"
 alias sg "gh copilot suggest"
-alias fs "yazi"
-alias zj "zellij"
+alias fs yazi
+alias zj zellij
 alias ssh "TERM=xterm-256color command ssh"
 
 alias diff difft
@@ -179,7 +179,7 @@ source $HOME/.config/fish/loadllvm.fish
 loadllvm --silent
 
 function gnz --description "Run Ghostty without Zellij"
-     NO_ZELLIJ_PLZ=True open -n /Applications/Ghostty.app/
+    NO_ZELLIJ_PLZ=True open -n /Applications/Ghostty.app/
 end
 
 # Launch neovide in the background (normally for larger projects)
