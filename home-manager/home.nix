@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./helix-lsps.nix
+  ];
+
   home.username = "tobydavis";
   home.homeDirectory = "/Users/tobydavis";
 
