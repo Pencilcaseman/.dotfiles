@@ -42,11 +42,11 @@ set -gx PATH $HOME/.config/bin $PATH
 
 set -gx LIBRARY_PATH $HOME/.nix-profile/lib $LIBRARY_PATH
 
-# Cat (bat)
-set -gx PATH $PATH "$HOME/.local/bin"
-alias cat "bat --paging=always"
-alias catp "bat --paging=never"
-alias ccat /bin/cat
+# # Cat (bat)
+# set -gx PATH $PATH "$HOME/.local/bin"
+# alias cat "bat --paging=always"
+# alias catp "bat --paging=never"
+# alias ccat /bin/cat
 
 # Hunspell
 set -gx DICT_ROOT $HOME/opt/dict

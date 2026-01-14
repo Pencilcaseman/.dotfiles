@@ -197,6 +197,10 @@
     zlib
     zpaq
     zsteg
+
+    # LSPs
+    basedpyright
+    ruff
   ];
 
   # Configure fonts for macOS

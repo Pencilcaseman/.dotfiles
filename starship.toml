@@ -310,6 +310,12 @@ symbol = "sudo "
 [swift]
 symbol = "swift "
 
+[time]
+disabled = false
+format = '[$time]($style) '
+time_format = "%R"
+style = "bold yellow"
+
 [typst]
 symbol = "typst "
 

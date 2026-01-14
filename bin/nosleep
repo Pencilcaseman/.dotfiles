@@ -1,1 +1,7 @@
-caffeinate -disum
+#!/bin/bash
+
+if [ $# -eq 1 ]; then
+    caffeinate -disum -t $1
+else
+    caffeinate -disum
+fi
