@@ -132,6 +132,18 @@
     lld
     lldb
 
+    # BUG: Nix has issues with clang/clangd/clang-tools.
+    # As a hacky fix, I have installed things via homebrew instead.
+    # See:
+    # - https://github.com/NixOS/nixpkgs/issues/308482
+    # - https://github.com/NixOS/nixpkgs/issues/76486
+    # - https://discourse.nixos.org/t/clang-clang-and-clangd-cant-find-headers-even-with-compile-commands-json/54657
+    #
+    # clang-tools
+    # clang
+    # llvmPackages.mlir
+    # llvmPackages.openmp
+
     #  - Ruby
     ruby
 

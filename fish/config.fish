@@ -157,9 +157,13 @@ end
 set -gx VULKAN_SDK (realpath ~/VulkanSDK/1.4.304.0/macOS/)
 
 alias ls "eza --icons"
+alias la "eza --icons --all"
 alias lls "eza --icons --smart-group --git --long --binary"
+alias lla "eza --icons --all --smart-group --git --long --binary"
 alias tls "eza --icons --tree"
+alias tla "eza --icons --all --tree"
 alias tlls "eza --icons --tree --smart-group --git --long --binary"
+alias tlla "eza --icons --all --tree --smart-group --git --long --binary"
 
 alias btmb "btm --basic"
 alias sg "gh copilot suggest"
