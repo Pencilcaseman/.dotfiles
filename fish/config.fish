@@ -179,8 +179,8 @@ alias mvc mullvadforceconnect
 alias mvd mullvadforcedisconnect
 alias mvr mullvadreconnect
 
-source $HOME/.config/fish/loadllvm.fish
-loadllvm --silent
+# source $HOME/.config/fish/loadllvm.fish
+# loadllvm --silent
 
 function gnz --description "Run Ghostty without Zellij"
     NO_ZELLIJ_PLZ=True open -n /Applications/Ghostty.app/

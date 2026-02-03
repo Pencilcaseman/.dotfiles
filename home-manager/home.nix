@@ -1,19 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-  imports = [
-    ./helix-lsps.nix
-  ];
+  imports = [];
 
   home.username = "tobydavis";
   home.homeDirectory = "/Users/tobydavis";
 
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [
-      "dotnet-sdk-6.0.428"
-      "dotnet-runtime-6.0.36"
-    ];
+    permittedInsecurePackages = [];
   };
 
   # This value determines the Home Manager release that your configuration is
@@ -24,6 +19,11 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
+
+  nixpkgs.overlays = [
+    # Nightly neovim overlay
+    inputs.neovim-nightly-overlay.overlays.default
+  ];
 
   home.packages = with pkgs; [
     # Output formatting
@@ -89,10 +89,8 @@
     # autoconf
     # autogen
 
-    cmakeCurses
     doxygen
     glew
-    gnumake
 
     # Terminal fun
     asciiquarium
@@ -132,23 +130,24 @@
     lld
     lldb
 
-    # BUG: Nix has issues with clang/clangd/clang-tools.
-    # As a hacky fix, I have installed things via homebrew instead.
-    # See:
-    # - https://github.com/NixOS/nixpkgs/issues/308482
-    # - https://github.com/NixOS/nixpkgs/issues/76486
-    # - https://discourse.nixos.org/t/clang-clang-and-clangd-cant-find-headers-even-with-compile-commands-json/54657
-    #
-    # clang-tools
-    # clang
-    # llvmPackages.mlir
-    # llvmPackages.openmp
+    cmake
+    gnumake
+    ninja
+    gnumake
+    (lib.lowPrio gcc)
+    (lib.hiPrio llvmPackages.clang)
+    llvmPackages.bintools
+    clang-tools
+
+    gmp
+    mpfr
+    libmpc
 
     #  - Ruby
     ruby
 
     #  - C#
-    (lib.hiPrio dotnet-sdk_9)
+    (lib.hiPrio dotnet-sdk_10)
     (lib.lowPrio mono) # Installed via brew (breaks with msbuild)
 
     #  - Haskell
@@ -163,9 +162,9 @@
     tectonic
     texliveFull
 
-    # #  - Lua
-    # (hiPrio lua)
-    # (lowPrio luajit)
+    #  - Lua
+    (lib.hiPrio lua)
+    (lib.lowPrio luajit)
 
     #  - Julia
     julia-bin
@@ -184,12 +183,14 @@
 
     # Apps
     # czkawka
+    paraview
     sniffnet
 
     # Libraries and Utilities
     # rustdesk
     # rustdesk-server
     # zbar # Installed via brew
+    applesauce
     dirbuster
     dust
     exiftool
@@ -204,6 +205,7 @@
     navi
     ncdu
     ncurses
+    opencv
     p7zip
     protobuf
     rustscan
@@ -228,7 +230,7 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "nvim";
+    EDITOR = "nvim";
   };
 
   programs.home-manager.enable = true;

@@ -10,6 +10,9 @@ cursor-color = CFCFCF
 cursor-text = 080808
 # cursor-invert-fg-bg = true
 
+adjust-underline-thickness = 3
+adjust-underline-position = 3
+
 mouse-hide-while-typing = true
 
 macos-option-as-alt = left
